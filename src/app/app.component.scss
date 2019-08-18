@@ -1,0 +1,44 @@
+@import "..//styles/vars.scss";
+
+// .container{
+//     // background: url('/assets/cover/coverImage.jpg');
+//     // background-size: cover;
+//     // background-position: center;
+//     // background-repeat: no-repeat;
+//     // height: 100%;
+// }
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-top: $size-xs;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+}
+
+.heading-text {
+  margin: 0;
+  position: relative;
+  margin-top: 95px;
+  width: 100%;
+  text-align: center;
+  font-family: Oswald, "sans-serif";
+}
+
+mat-toolbar {
+  background: rgba(18, 18, 18, 0.5);
+}
+
+.search_container {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.search_field {
+  width: 50%;
+  font-family: "Montserrat", "Roboto";
+}

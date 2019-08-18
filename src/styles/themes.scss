@@ -1,0 +1,30 @@
+// mat-palette accepts $palette-name, main, lighter and darker variants
+// $my-theme-primary: mat-palette($mat-indigo, 700, 300, 900);
+// $my-theme-accent: mat-palette($mat-light-blue);
+// $my-theme-warn: mat-palette($mat-deep-orange, A200);
+
+// // create theme (use mat-dark-theme for themes with dark backgrounds)
+// $custom-theme: mat-light-theme(
+//     $my-theme-primary,
+//     $my-theme-accent,
+//     $my-theme-warn
+// );
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+@include mat-core();
+
+$SearchX-primary: mat-palette($mat-teal, 500, 50, 700);
+$SearchX-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$SearchX-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$SearchX-theme: mat-dark-theme(
+  $SearchX-primary,
+  $SearchX-accent,
+  $SearchX-warn
+);
