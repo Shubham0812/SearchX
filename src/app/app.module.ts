@@ -13,11 +13,15 @@ import {
   MatIconModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatRippleModule
 } from "@angular/material";
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ContentCardComponent } from './components/content-card/content-card.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SearchResultComponent, HomePageComponent, ContentCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +34,8 @@ import {
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div>
+    <p color="primary" class="mat-display-2 heading-text ">
+      What do you wanna do today&nbsp;?
+    </p>
+  </div>
+  <div class="search_container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="search_field" #searchfield>
+        <mat-label>Search for anything</mat-label>
+
+        <input
+          matInput
+          placeholder="Ex: Show me latest songs"
+          formControlName="searchQuery"
+          autocomplete="off"
+        />
+        <button matSuffix type="submit">
+          <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </div>
+</div>

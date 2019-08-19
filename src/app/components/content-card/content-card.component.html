@@ -1,0 +1,12 @@
+<div class = "card-container">
+        <mat-card  class = "song-card">
+            <div [ngClass] = "{'song-image' : content.artist, 'artist-image' : content.subscribers}" >
+                <img  [src] = 'content.thumbnail' (focus) = "focusImage()">
+            </div>
+            <div class = "song-information">
+                <span  [ngClass] = "{'song-title' : content.artist, 'artist-title' : content.subscribers}">{{content.name}}</span>
+                <span class = "song-description" *ngIf = "content.artist">{{content.mimeType}} • {{content.artist}}</span>
+                <span class = "artist-description" *ngIf = "content.subscribers"> {{content.subscribers}} subscribers </span>
+            </div>
+        </mat-card>
+</div>

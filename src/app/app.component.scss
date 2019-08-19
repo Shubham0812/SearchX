@@ -1,44 +1,23 @@
 @import "..//styles/vars.scss";
 
-// .container{
-//     // background: url('/assets/cover/coverImage.jpg');
-//     // background-size: cover;
-//     // background-position: center;
-//     // background-repeat: no-repeat;
-//     // height: 100%;
-// }
-
 .logo {
   width: 64px;
   height: 64px;
   margin-top: $size-xs;
-}
-
-.heading {
-  display: flex;
-  justify-content: center;
-}
-
-.heading-text {
-  margin: 0;
-  position: relative;
-  margin-top: 95px;
-  width: 100%;
-  text-align: center;
-  font-family: Oswald, "sans-serif";
+  outline: none;
 }
 
 mat-toolbar {
   background: rgba(18, 18, 18, 0.5);
 }
 
-.search_container {
-  display: flex;
-  margin-top: 30px;
-  justify-content: center;
+mat-icon {
+  font-size: 24px;
 }
 
-.search_field {
-  width: 50%;
-  font-family: "Montserrat", "Roboto";
+img:hover{
+  transform: scale(1.05);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 1000ms;
+  cursor: pointer;
 }
