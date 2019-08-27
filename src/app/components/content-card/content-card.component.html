@@ -1,4 +1,4 @@
-<div class = "card-container">
+<div class = "card-container" *ngIf="content">
         <mat-card  class = "song-card">
             <div [ngClass] = "{'song-image' : content.artist, 'artist-image' : content.subscribers}" >
                 <img  [src] = 'content.thumbnail' (focus) = "focusImage()">
@@ -6,7 +6,21 @@
             <div class = "song-information">
                 <span  [ngClass] = "{'song-title' : content.artist, 'artist-title' : content.subscribers}">{{content.name}}</span>
                 <span class = "song-description" *ngIf = "content.artist">{{content.mimeType}} • {{content.artist}}</span>
-                <span class = "artist-description" *ngIf = "content.subscribers"> {{content.subscribers}} subscribers </span>
             </div>
         </mat-card>
 </div>
+
+
+<div class = "card-container" *ngIf="artist">
+        <mat-card  class = "song-card">
+            <div class ="artist-image" >
+                <img  [src] = 'artist.thumbnail' (focus) = "focusImage()">
+            </div>
+            <div class = "song-information">
+                <span  class = "artist-title">{{artist.name}}</span>
+                <span class = "artist-description" *ngIf = "artist.subscribers"> {{artist.subscribers}} subscribers </span>
+            </div>
+        </mat-card>
+</div>
+
+
