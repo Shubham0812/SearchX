@@ -14,14 +14,22 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule,
+  MatGridListModule
 } from "@angular/material";
-import { SearchResultComponent } from './components/search-result/search-result.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { ContentCardComponent } from './components/content-card/content-card.component';
+import { SearchResultComponent } from "./components/search-result/search-result.component";
+import { HomePageComponent } from "./components/home-page/home-page.component";
+import { ContentCardComponent } from "./components/content-card/content-card.component";
+import { HorizontalScrollerComponent } from "./utils/horizontal-scroller/horizontal-scroller.component";
 
 @NgModule({
-  declarations: [AppComponent, SearchResultComponent, HomePageComponent, ContentCardComponent],
+  declarations: [
+    AppComponent,
+    SearchResultComponent,
+    HomePageComponent,
+    ContentCardComponent,
+    HorizontalScrollerComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +43,8 @@ import { ContentCardComponent } from './components/content-card/content-card.com
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

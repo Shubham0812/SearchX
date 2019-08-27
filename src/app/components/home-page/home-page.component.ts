@@ -1,6 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import { EventEmitter } from "events";
+import { DataFetchService } from "../../services/data-fetch.service";
+
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: "app-home-page",
@@ -8,8 +17,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./home-page.component.scss"]
 })
 export class HomePageComponent implements OnInit {
+  @Output() showLoading = new EventEmitter();
   searched: boolean = false;
-  loading: boolean = false;
 
   // searchQuery = new FormControl("");
 
@@ -17,7 +26,14 @@ export class HomePageComponent implements OnInit {
     searchQuery: new FormControl("")
   });
 
-  constructor(private router: Router) {
+  tiles: Tile[] = [
+    { text: "Songs", cols: 3, rows: 1, color: "#212121" },
+    { text: "Movies", cols: 1, rows: 2, color: "#212121" },
+    { text: "Games", cols: 1, rows: 1, color: "#212121" },
+    { text: "Books", cols: 2, rows: 1, color: "#121212" }
+  ];
+
+  constructor(private router: Router, private dataFetchSvc: DataFetchService) {
     console.log("Constructor called");
   }
 
@@ -25,6 +41,7 @@ export class HomePageComponent implements OnInit {
 
   onSubmit() {
     if (this.searchForm.value !== "") {
+      this.dataFetchSvc.changeLoadState(true);
       console.log("Submit called", this.searchForm.controls.searchQuery.value);
       this.searched = true;
       // this.searchForm.reset();
@@ -35,5 +52,9 @@ export class HomePageComponent implements OnInit {
         this.router.navigate(["/search", "song"]);
       }, 600);
     }
+  }
+
+  gridClicked(data: string) {
+    console.log("grid tile", data);
   }
 }

@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { IContent, IArtist } from "../models/content-model";
-
+import { Observable, of, BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class DataFetchService {
+  private loadSource = new BehaviorSubject(false);
+  currentState = this.loadSource.asObservable();
+  constructor() {}
+
   content: IContent[] = [
     {
       name: "Machayenge",
@@ -121,13 +125,15 @@ export class DataFetchService {
     }
   ];
 
-  constructor() {}
-
   getContent(): IContent[] {
     return this.content;
   }
 
   getArtists(): IArtist[] {
     return this.artist;
+  }
+
+  changeLoadState(state: boolean) {
+    this.loadSource.next(state);
   }
 }

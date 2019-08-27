@@ -1,24 +1,19 @@
-<h3 >Some favorites</h3>
-<div  *ngIf ="contents" class = "card-container" >
-     <button class = "previous-button" (click) = scrollLeft() *ngIf = "!disablePrev">
-               <mat-icon aria-label="Previous" role="button">navigate_before</mat-icon>
-     </button>
-     <div *ngIf ="contents" class = "card-holder" #cardContents >
-          <div *ngFor  = "let content of contents"  >
-            <app-content-card [content] = "content"></app-content-card>
-          </div>    
-     </div>
-     <button class = "next-button" (click) = scrollRight() *ngIf = "!disableNext">
-               <mat-icon aria-label="Next" role="button">navigate_next</mat-icon>
-     </button>
+<h3>Trending Songs</h3>
+<div *ngIf="contents">
+  <app-horizontal-scroller>
+    <app-content-card
+      *ngFor="let content of contents"
+      [content]="content"
+    ></app-content-card>
+  </app-horizontal-scroller>
 </div>
 
-<h3>Artists you may like</h3>
-<div *ngIf = "artists" class = "card-container">
-     <div *ngIf = "artists" class = "card-holder" #artistContents>
-          <div *ngFor = "let artist of artists">
-               <app-content-card [content] = "artist"></app-content-card>
-          </div>
-     </div>
+<h3>Top Artists</h3>
+<div *ngIf="artists">
+  <app-horizontal-scroller>
+    <app-content-card
+      *ngFor="let artist of artists"
+      [content]="artist"
+    ></app-content-card>
+  </app-horizontal-scroller>
 </div>
-

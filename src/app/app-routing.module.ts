@@ -4,19 +4,19 @@ import { SearchResultComponent } from "./components/search-result/search-result.
 import { HomePageComponent } from "./components/home-page/home-page.component";
 
 const routes: Routes = [
-
   {
     path: "",
     pathMatch: "full",
     redirectTo: "home"
-  }, {
+  },
+  {
     path: "home",
     component: HomePageComponent
   },
-    {
+  {
     path: "search/:query",
     component: SearchResultComponent
-  },
+  }
 ];
 
 @NgModule({

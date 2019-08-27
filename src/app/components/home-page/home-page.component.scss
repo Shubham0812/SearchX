@@ -20,12 +20,16 @@
 }
 
 .heading-text {
+  display: block;
   margin: 0;
   position: relative;
   margin-top: 95px;
   width: 100%;
-  text-align: center;
   font-family: Oswald, "sans-serif";
+}
+
+.center {
+  text-align: center;
 }
 
 mat-toolbar {
@@ -53,8 +57,26 @@ mat-toolbar {
     // outline: none;
   }
   mat-icon {
-  font-size: 24px;
+    font-size: 24px;
+  }
 }
+
+.grid{
+  margin: 50px $size-m;
+}
+
+.margin-l{
+    margin-left: $size-m;
 }
 
 
+.explore{
+
+  margin-top: 95px;
+
+}
+
+.head-text{
+  font-family: Oswald, "sans-serif";
+
+}

@@ -2,6 +2,7 @@
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
 @import "./themes.scss";
+@import './vars.scss';
 // Plus imports for other components in your app.
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -26,11 +27,14 @@ body {
   background: rgba(18, 18, 18, 1);
 }
 
-
- .mat-card{
-    display: inline-block; 
+.mat-card {
+  display: inline-block;
   background: rgba(18, 18, 18, 1);
-    border: 0;
-    border-radius: 0;
+  border: 0;
+  border-radius: 0;
 }
 
+
+.margin-left {
+  margin-left: $size-m;
+}
