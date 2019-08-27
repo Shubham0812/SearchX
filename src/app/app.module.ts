@@ -20,15 +20,13 @@ import {
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ContentCardComponent } from "./components/content-card/content-card.component";
-import { HorizontalScrollerComponent } from "./utils/horizontal-scroller/horizontal-scroller.component";
-
+import { HorizontalScrollerModule } from "../app/utils/horizontal-scroller/horizontal-scroller.module";
 @NgModule({
   declarations: [
     AppComponent,
     SearchResultComponent,
     HomePageComponent,
-    ContentCardComponent,
-    HorizontalScrollerComponent
+    ContentCardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +42,8 @@ import { HorizontalScrollerComponent } from "./utils/horizontal-scroller/horizon
     ReactiveFormsModule,
     MatInputModule,
     MatRippleModule,
-    MatGridListModule
+    MatGridListModule,
+    HorizontalScrollerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

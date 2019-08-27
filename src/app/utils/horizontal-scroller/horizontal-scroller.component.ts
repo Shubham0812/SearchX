@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from "@angular/core";
 import { Subscription, fromEvent } from "rxjs";
 import { debounceTime, throttleTime } from "rxjs/operators";
 
@@ -7,7 +7,7 @@ import { debounceTime, throttleTime } from "rxjs/operators";
   templateUrl: "./horizontal-scroller.component.html",
   styleUrls: ["./horizontal-scroller.component.scss"]
 })
-export class HorizontalScrollerComponent implements OnInit {
+export class HorizontalScrollerComponent implements OnInit, OnDestroy {
   disableNext: boolean;
   disablePrev: boolean;
   scrollObserver: Subscription;
@@ -24,12 +24,19 @@ export class HorizontalScrollerComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngOnDestroy() {
+    if (this.scrollObserver) {
+      this.scrollObserver.unsubscribe();
+    }
+  }
+
   initializeObserver() {
     this.scrollObserver = fromEvent(this.cardContents.nativeElement, "scroll")
       .pipe(debounceTime(200))
       .pipe(throttleTime(200))
       .subscribe(_ => {
-        this.updateNavigationButtonStatus(this.cardContents.nativeElement as HTMLElement);
+        this.updateNavigationButtonStatus(this.cardContents
+          .nativeElement as HTMLElement);
       });
   }
 
