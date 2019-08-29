@@ -1,4 +1,5 @@
 @import "~src/styles/vars.scss";
+@import "~src/styles/mixins.scss";
 
 .logo {
   width: 64px;
@@ -82,12 +83,18 @@ mat-toolbar {
   background-repeat: no-repeat;
   background-position-y: -150px;
   cursor: pointer;
+  @include breakpoint-lt-s {
+    background-position-y: 0px;
+  }
 }
 .background-books {
   background-image: url("/assets/tile/books-tile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: -90px;
+  @include breakpoint-lt-s {
+    background-position-y: 0px;
+  }
 }
 .background-games {
   background-image: url("/assets/tile/games-tile.jpg");
@@ -99,6 +106,9 @@ mat-toolbar {
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: -120px;
+  @include breakpoint-lt-s {
+    background-position-x: 0px;
+  }
 }
 
 .overlay {
