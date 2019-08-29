@@ -1,13 +1,5 @@
 @import "~src/styles/vars.scss";
 
-// .container{
-//     // background: url('/assets/cover/coverImage.jpg');
-//     // background-size: cover;
-//     // background-position: center;
-//     // background-repeat: no-repeat;
-//     // height: 100%;
-// }
-
 .logo {
   width: 64px;
   height: 64px;
@@ -37,7 +29,7 @@ mat-toolbar {
 }
 
 .search_container {
-  margin-top: 30px;
+  margin-top: 40px;
   justify-content: center;
 
   form {
@@ -62,7 +54,14 @@ mat-toolbar {
 }
 
 .grid{
-  margin: 50px $size-m;
+  margin: 50px;
+
+  button{
+    background: none;
+    border: none;
+    color:white;
+    cursor: pointer;
+  }
 }
 
 .margin-l{

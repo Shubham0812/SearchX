@@ -1,0 +1,85 @@
+@mixin theme-based-configurations($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  $colorPrimaryDark: mat-color($primary, darker);
+  $colorPrimaryLight: mat-color($primary, lighter);
+  $colorPrimary: mat-color($primary, default);
+
+  $colorAccentDark: mat-color($accent, darker);
+  $colorAccentLight: mat-color($accent, lighter);
+  $colorAccent: mat-color($accent, default);
+
+  $colorBackground: mat-color($background, background);
+  $colorText: mat-color($foreground, text);
+
+  .mat-primary-lite-background {
+    background-color: $colorPrimaryLight;
+  }
+
+  .mat-primary-background {
+    background-color: $colorPrimary;
+  }
+
+  .mat-accent-background {
+    background-color: $colorAccent;
+  }
+
+  .mat-primary-text {
+    color: $colorPrimary !important;
+  }
+
+  .mat-accent-text {
+    color: $colorAccent;
+  }
+
+  .ws-mat-red-text{
+    color: $colorRed !important;
+  }
+
+  .ws-mat-primary-border {
+    border: 1px solid $colorPrimary;
+  }
+  .ws-mat-primary-border-bold {
+    border: 2px solid $colorPrimary;
+  }
+  .ws-mat-primary-border-top-bolder {
+    border-top: 4px solid $colorPrimary;
+  }
+  .ws-mat-accent-border {
+    border: 1px solid $colorAccent;
+  }
+  .ws-mat-text-block-fade-gradient {
+    position: relative;
+    &::after,
+    &::before {
+      text-align: right;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40%;
+      height: 1.2em;
+    }
+    &::after {
+      content: '';
+      background: linear-gradient(
+        to right,
+        rgba(mat-color($background, card), 0),
+        mat-color($background, card) 50%
+      );
+    }
+    &::before {
+      content: '...';
+    }
+  }
+  .mat-button-toggle-checked {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast) !important;
+  }
+
+  .ws-primary-tinted-50 {
+    @include color-background-opacity($colorPrimary, 0.5);
+  }
+}

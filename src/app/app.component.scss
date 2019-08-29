@@ -15,9 +15,14 @@ mat-icon {
   font-size: 24px;
 }
 
-img:hover{
-  transform: scale(1.05);
+img:hover {
+  transform: scale(1.1);
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition-duration: 1000ms;
+  transition-duration: 1100ms;
   cursor: pointer;
+}
+
+.loading-bar {
+  position: sticky;
+  top: 0;
 }

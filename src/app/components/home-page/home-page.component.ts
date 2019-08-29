@@ -56,5 +56,11 @@ export class HomePageComponent implements OnInit {
 
   gridClicked(data: string) {
     console.log("grid tile", data);
+    if (data.toLowerCase() === "songs") {
+      this.dataFetchSvc.changeLoadState(true);
+      setTimeout(_ => {
+        this.router.navigate(["/search/song"]);
+      }, 600);
+    }
   }
 }
