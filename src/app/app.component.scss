@@ -15,6 +15,11 @@ mat-icon {
   font-size: 24px;
 }
 
+img{
+    transition-duration: 600ms;
+
+}
+
 img:hover {
   transform: scale(1.1);
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);

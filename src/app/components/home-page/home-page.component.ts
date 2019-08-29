@@ -27,10 +27,10 @@ export class HomePageComponent implements OnInit {
   });
 
   tiles: Tile[] = [
-    { text: "Songs", cols: 3, rows: 1, color: "#212121" },
-    { text: "Movies", cols: 1, rows: 2, color: "#212121" },
-    { text: "Games", cols: 1, rows: 1, color: "#212121" },
-    { text: "Books", cols: 2, rows: 1, color: "#121212" }
+    { text: "Songs", cols: 3, rows: 2, color: "#212121" },
+    { text: "Movies", cols: 1, rows: 4, color: "#212121" },
+    { text: "Games", cols: 1, rows: 2, color: "#212121" },
+    { text: "Books", cols: 2, rows: 2, color: "#121212" }
   ];
 
   constructor(private router: Router, private dataFetchSvc: DataFetchService) {
@@ -50,6 +50,12 @@ export class HomePageComponent implements OnInit {
       console.log("song query");
       setTimeout(() => {
         this.router.navigate(["/search", "song"]);
+      }, 600);
+    } else {
+      this.searchForm.reset();
+      this.searched = false;
+      setTimeout(() => {
+        this.dataFetchSvc.changeLoadState(false);
       }, 600);
     }
   }

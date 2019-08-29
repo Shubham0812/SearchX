@@ -15,7 +15,7 @@
   display: block;
   margin: 0;
   position: relative;
-  margin-top: 95px;
+  margin-top: 110px;
   width: 100%;
   font-family: Oswald, "sans-serif";
 }
@@ -29,7 +29,7 @@ mat-toolbar {
 }
 
 .search_container {
-  margin-top: 40px;
+  margin-top: 50px;
   justify-content: center;
 
   form {
@@ -53,29 +53,69 @@ mat-toolbar {
   }
 }
 
-.grid{
+.grid {
   margin: 50px;
 
-  button{
+  button {
     background: none;
     border: none;
-    color:white;
+    color: white;
     cursor: pointer;
   }
 }
 
-.margin-l{
-    margin-left: $size-m;
+.margin-l {
+  margin-left: $size-m;
 }
 
-
-.explore{
-
+.explore {
   margin-top: 95px;
-
 }
 
-.head-text{
+.head-text {
   font-family: Oswald, "sans-serif";
+}
 
+.background-songs {
+  background-image: url("/assets/tile/songs-tile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -150px;
+  cursor: pointer;
+}
+.background-books {
+  background-image: url("/assets/tile/books-tile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -90px;
+}
+.background-games {
+  background-image: url("/assets/tile/games-tile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.background-movies {
+  background-image: url("/assets/tile/movies-tile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -120px;
+}
+
+.overlay {
+  opacity: 0.6;
+  transition-duration: 1100ms;
+
+  button {
+    opacity: 1;
+  }
+}
+
+.n-overlay {
+  opacity: 1 !important;
+}
+
+.overlay:hover {
+  opacity: 1;
+  transition-duration: 1100ms;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
