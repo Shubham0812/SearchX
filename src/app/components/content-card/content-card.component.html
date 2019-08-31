@@ -1,5 +1,5 @@
 <div class = "card-container" *ngIf="content">
-        <mat-card  class = "song-card">
+        <mat-card  class = "song-card" (click) = "contentClicked(content)">
             <div [ngClass] = "{'song-image' : content.artist, 'artist-image' : content.subscribers}" >
                 <img  [src] = 'content.thumbnail' (focus) = "focusImage()">
             </div>

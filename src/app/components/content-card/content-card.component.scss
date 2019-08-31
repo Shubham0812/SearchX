@@ -6,6 +6,12 @@
     width: 195px;
     height: 100%;
     margin: 20px 10px;
+    cursor: pointer;
+    transition-duration: 800ms;
+}
+
+.card-container:hover{
+    opacity: 0.725;
 }
 .song-image{
     img{

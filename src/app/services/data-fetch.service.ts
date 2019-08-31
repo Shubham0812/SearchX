@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-import { IContent, IArtist } from "../models/content-model";
-import { Observable, of, BehaviorSubject } from "rxjs";
+import { ISong, IArtist, ITracks } from "../models/content-model";
+import { BehaviorSubject } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -8,81 +10,93 @@ import { Observable, of, BehaviorSubject } from "rxjs";
 export class DataFetchService {
   private loadSource = new BehaviorSubject(false);
   currentState = this.loadSource.asObservable();
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  content: IContent[] = [
+  content: ISong[] = [
     {
       name: "Machayenge",
       thumbnail: "assets/thumbnail/music/songs/emiway-machayenge.jpg",
       mimeType: "Song",
-      artist: "Emiway"
+      artist: "Emiway",
+      tracks: this.getSongs("emiway")
     },
     {
       name: "Buniyaad",
       thumbnail: "assets/thumbnail/music/songs/yellow-diary-buniyaad.jpg",
       mimeType: "Song",
-      artist: "The Yellow Diary"
+      artist: "The Yellow Diary",
+      tracks: this.getSongs("theyellowdiary")
     },
     {
       name: "Shotgun",
       thumbnail: "assets/thumbnail/music/songs/george-ezra-shotgun.jpg",
       mimeType: "Song",
-      artist: "George Ezra"
+      artist: "George Ezra",
+      tracks: this.getSongs("georgeezra")
     },
     {
-      name: "Good things fall apart",
+      name: "Good Things Fall Apart",
       thumbnail: "assets/thumbnail/music/songs/illenium-good-things.jpg",
       mimeType: "Song",
-      artist: "Illenium"
+      artist: "Illenium",
+      tracks: this.getSongs("illenium")
     },
     {
       name: "Birds",
       thumbnail: "assets/thumbnail/music/songs/imagine-dragons-birds.jpg",
       mimeType: "Song",
-      artist: "Imagine Dragons"
+      artist: "Imagine Dragons",
+      tracks: this.getSongs("imaginedragons")
     },
     {
       name: "Azadi",
       thumbnail: "assets/thumbnail/music/songs/gully-boy-azadi.jpg",
       mimeType: "Song",
-      artist: "Gully Boy"
+      artist: "Gully Boy",
+      tracks: this.getSongs("gullyboy")
     },
     {
       name: "Yahin Hoon Main",
       thumbnail:
         "assets/thumbnail/music/songs/ayushmann-khurrana-yahin-hoon-main.jpg",
       mimeType: "Song",
-      artist: "Ayushmaan Khurrana"
+      artist: "Ayushmann Khurrana",
+      tracks: this.getSongs("ayushmannkhurrana")
     },
     {
       name: "New Divide",
       thumbnail: "assets/thumbnail/music/songs/linkin-park-new-divide.jpg",
       mimeType: "Song",
-      artist: "Linkin Park"
+      artist: "Linkin Park",
+      tracks: this.getSongs("linkinpark")
     },
     {
       name: "Bad Guy",
       thumbnail: "assets/thumbnail/music/songs/billie-eilish-bad-guy.jpg",
       mimeType: "Song",
-      artist: "Billie Eilish"
+      artist: "Billie Eilish",
+      tracks: this.getSongs("billieeilish")
     },
     {
       name: "Marz",
       thumbnail: "assets/thumbnail/music/songs/yellow-diary-marz.jpg",
       mimeType: "Song",
-      artist: "The Yellow Diary"
+      artist: "The Yellow Diary",
+      tracks: this.getSongs("theyellowdiary")
     },
     {
       name: "She Don't Know",
       thumbnail: "assets/thumbnail/music/songs/millind-gaba-she-dont-know.jpg",
       mimeType: "Song",
-      artist: "Millind Gaba"
+      artist: "Millind Gaba",
+      tracks: this.getSongs("millindgaba")
     },
     {
       name: "Bekhayali",
       thumbnail: "assets/thumbnail/music/songs/kabir-singh-bekhayali.jpg",
       mimeType: "Song",
-      artist: "Kabir Singh"
+      artist: "Kabir Singh",
+      tracks: this.getSongs("kabirsingh")
     }
   ];
 
@@ -125,7 +139,7 @@ export class DataFetchService {
     }
   ];
 
-  getContent(): IContent[] {
+  getContent(): ISong[] {
     return this.content;
   }
 
@@ -135,5 +149,35 @@ export class DataFetchService {
 
   changeLoadState(state: boolean) {
     this.loadSource.next(state);
+  }
+
+  getTracksForArtist(artist: string): Observable<any> {
+    const tracks: ITracks[] = [];
+    return this.http.get(
+      `https://itunes.apple.com/search?term=${artist.toLowerCase()}&limit=8`
+    );
+  }
+
+  getSongs(artistName: string): ITracks[] {
+    const tracks: ITracks[] = [];
+    this.getTracksForArtist(artistName.toLowerCase()).subscribe(
+      (songs: any) => {
+        // console.log("checking songs", songs.results);
+        songs.results.forEach((song: any) => {
+          // console.log(song.artistName, "->", song.trackName);
+          const trackData: ITracks = {
+            trackName: song.trackName,
+            artistName: song.artistName,
+            albumName: song.collectionName,
+            country: song.country,
+            genre: song.primaryGenreName
+          };
+          console.log("tracks", trackData);
+          tracks.push(trackData);
+        });
+        console.log("final data", tracks);
+      }
+    );
+    return tracks;
   }
 }

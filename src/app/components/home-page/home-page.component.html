@@ -32,7 +32,7 @@
         <mat-grid-tile
           [colspan]="3"
           [rowspan]="2"
-          [routerLink]= "'/search/song'"
+          (click) = "gridClicked('songs')"
           class="mat-elevation-z6 background-songs overlay"
         >
           <button class = "mat-title" (click)="gridClicked('Songs')">Songs</button>

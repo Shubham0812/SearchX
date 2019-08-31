@@ -52,6 +52,9 @@ mat-toolbar {
   mat-icon {
     font-size: 24px;
   }
+  @include breakpoint-xs{
+    width: 59%;
+  }
 }
 
 .grid {
@@ -113,11 +116,8 @@ mat-toolbar {
 
 .overlay {
   opacity: 0.6;
-  transition-duration: 1100ms;
+  transition-duration: 800ms;
 
-  button {
-    opacity: 1;
-  }
 }
 
 .n-overlay {
@@ -126,6 +126,6 @@ mat-toolbar {
 
 .overlay:hover {
   opacity: 1;
-  transition-duration: 1100ms;
+  transition-duration: 800ms;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }

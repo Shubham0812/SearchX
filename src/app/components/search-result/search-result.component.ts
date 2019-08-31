@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Subscription, fromEvent } from "rxjs";
-import { IContent, IArtist } from "../../models/content-model";
+import { ISong, IArtist } from "../../models/content-model";
 import { DataFetchService } from "../../services/data-fetch.service";
 import { ActivatedRoute } from "@angular/router";
 
@@ -13,7 +13,7 @@ export class SearchResultComponent implements OnInit {
   paramSubscription: Subscription | null = null;
   searchQuery: string;
 
-  contents: IContent[];
+  contents: ISong[];
   artists: IArtist[];
 
   constructor(
@@ -21,7 +21,7 @@ export class SearchResultComponent implements OnInit {
     private dataFetchSvc: DataFetchService
   ) {
     this.contents = this.dataFetchSvc.getContent();
-    console.log(this.contents);
+    console.log('Check data', this.contents);
     this.artists = this.dataFetchSvc.getArtists();
     console.log(this.artists);
     this.dataFetchSvc.changeLoadState(false);

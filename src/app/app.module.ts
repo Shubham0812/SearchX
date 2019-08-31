@@ -15,23 +15,29 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatRippleModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule,
 } from "@angular/material";
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ContentCardComponent } from "./components/content-card/content-card.component";
 import { HorizontalScrollerModule } from "../app/utils/horizontal-scroller/horizontal-scroller.module";
+import { InfoDialogComponent } from "./components/info-dialog/info-dialog.component";
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchResultComponent,
     HomePageComponent,
-    ContentCardComponent
+    ContentCardComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatProgressBarModule,
     MatToolbarModule,
     MatCardModule,
@@ -43,8 +49,10 @@ import { HorizontalScrollerModule } from "../app/utils/horizontal-scroller/horiz
     MatInputModule,
     MatRippleModule,
     MatGridListModule,
-    HorizontalScrollerModule,
+    MatDialogModule,
+    HorizontalScrollerModule
   ],
+  entryComponents: [InfoDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
