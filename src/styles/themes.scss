@@ -1,20 +1,5 @@
-// mat-palette accepts $palette-name, main, lighter and darker variants
-// $my-theme-primary: mat-palette($mat-indigo, 700, 300, 900);
-// $my-theme-accent: mat-palette($mat-light-blue);
-// $my-theme-warn: mat-palette($mat-deep-orange, A200);
 
-// // create theme (use mat-dark-theme for themes with dark backgrounds)
-// $custom-theme: mat-light-theme(
-//     $my-theme-primary,
-//     $my-theme-accent,
-//     $my-theme-warn
-// );
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 @import "~@angular/material/theming";
-
 @import './theme_mixins.scss';
 
 @include mat-core();
@@ -31,3 +16,7 @@ $SearchX-theme: mat-dark-theme(
   $SearchX-accent,
   $SearchX-warn
 );
+
+
+@include angular-material-theme($SearchX-theme);
+@include theme-based-configurations($SearchX-theme);

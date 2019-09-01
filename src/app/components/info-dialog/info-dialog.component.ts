@@ -14,9 +14,9 @@ import { ISong } from "../../models/content-model";
 export class InfoDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<InfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ISong,
+    @Inject(MAT_DIALOG_DATA) public data: ISong
   ) {
-    console.log('dialog open', data);
+    console.log("dialog open", data);
   }
 
   onClose(): void {
@@ -24,4 +24,8 @@ export class InfoDialogComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  bookmark() {
+    console.log('bookmark');
+  }
 }

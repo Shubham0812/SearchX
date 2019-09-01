@@ -21,15 +21,8 @@ export class ContentCardComponent implements OnInit {
   contentClicked(content: ISong) {
     console.log("Content", content);
     const dialogRef = this.dialog.open(InfoDialogComponent, {
-      width: "50%",
-      height: "60%",
-      data: {
-        name: content.name,
-        thumbnail: content.thumbnail,
-        mimeType: content.mimeType,
-        artist: content.artist,
-        tracks: content.tracks,
-      }
+      width: "70%",
+      data: content,
     });
   }
 }

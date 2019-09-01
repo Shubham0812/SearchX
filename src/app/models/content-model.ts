@@ -4,6 +4,9 @@ export interface ISong {
   mimeType: string;
   artist: string;
   tracks: ITracks[];
+  publishYear: number;
+  duration: string;
+  genre: string;
 }
 
 export interface ITracks {
@@ -12,6 +15,8 @@ export interface ITracks {
   albumName: string;
   country: string;
   genre: string;
+  duration: string;
+  thumbnail: string;
 }
 
 export interface IArtist {
