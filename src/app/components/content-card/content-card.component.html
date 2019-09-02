@@ -12,7 +12,7 @@
 
 
 <div class = "card-container" *ngIf="artist">
-        <mat-card  class = "song-card">
+        <mat-card  class = "song-card" (click) = "artistClicked(artist)">
             <div class ="artist-image" >
                 <img  [src] = 'artist.thumbnail' (focus) = "focusImage()">
             </div>

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ISong, IArtist, ITracks } from "../models/content-model";
+import { ISong, IArtist, ITracks, IAlbums } from "../models/content-model";
 import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -10,7 +10,7 @@ import { Observable } from "rxjs";
 export class DataFetchService {
   private loadSource = new BehaviorSubject(false);
   currentState = this.loadSource.asObservable();
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   content: ISong[] = [
     {
@@ -20,8 +20,8 @@ export class DataFetchService {
       artist: "Emiway",
       tracks: this.getSongs("emiway"),
       publishYear: 2019,
-      duration: '2:33',
-      genre: 'Hip-Hop/Rap',
+      duration: "2:33",
+      genre: "Hip-Hop/Rap"
     },
     {
       name: "Buniyaad",
@@ -30,8 +30,8 @@ export class DataFetchService {
       artist: "The Yellow Diary",
       tracks: this.getSongs("theyellowdiary"),
       publishYear: 2018,
-      duration: '4:16',
-      genre: 'Indian Pop',
+      duration: "4:16",
+      genre: "Indian Pop"
     },
     {
       name: "Shotgun",
@@ -40,8 +40,8 @@ export class DataFetchService {
       artist: "George Ezra",
       tracks: this.getSongs("georgeezra"),
       publishYear: 2018,
-      duration: '3:21',
-      genre: 'Singer/Songwriter',
+      duration: "3:21",
+      genre: "Singer/Songwriter"
     },
     {
       name: "Good Things Fall Apart",
@@ -50,8 +50,8 @@ export class DataFetchService {
       artist: "Illenium",
       tracks: this.getSongs("illenium"),
       publishYear: 2019,
-      duration: '3:37',
-      genre: 'Dance',
+      duration: "3:37",
+      genre: "Dance"
     },
     {
       name: "Birds",
@@ -60,8 +60,8 @@ export class DataFetchService {
       artist: "Imagine Dragons",
       tracks: this.getSongs("imaginedragons"),
       publishYear: 2019,
-      duration: '3:39',
-      genre: 'Alternative',
+      duration: "3:39",
+      genre: "Alternative"
     },
     {
       name: "Azadi",
@@ -70,8 +70,8 @@ export class DataFetchService {
       artist: "Gully Boy",
       tracks: this.getSongs("gullyboy"),
       publishYear: 2019,
-      duration: '2:35',
-      genre: 'Hip-Hop/Rap',
+      duration: "2:35",
+      genre: "Hip-Hop/Rap"
     },
     {
       name: "Yahin Hoon Main",
@@ -81,8 +81,8 @@ export class DataFetchService {
       artist: "Ayushmann Khurrana",
       tracks: this.getSongs("ayushmannkhurrana"),
       publishYear: 2017,
-      duration: '3:58',
-      genre: 'Bollywood',
+      duration: "3:58",
+      genre: "Bollywood"
     },
     {
       name: "New Divide",
@@ -91,8 +91,8 @@ export class DataFetchService {
       artist: "Linkin Park",
       tracks: this.getSongs("linkinpark"),
       publishYear: 2009,
-      duration: '4:28',
-      genre: 'Rock',
+      duration: "4:28",
+      genre: "Rock"
     },
     {
       name: "Bad Guy",
@@ -101,8 +101,8 @@ export class DataFetchService {
       artist: "Billie Eilish",
       tracks: this.getSongs("billieeilish"),
       publishYear: 2019,
-      duration: '3:14',
-      genre: 'Alternative',
+      duration: "3:14",
+      genre: "Alternative"
     },
     {
       name: "Marz",
@@ -111,8 +111,8 @@ export class DataFetchService {
       artist: "The Yellow Diary",
       tracks: this.getSongs("theyellowdiary"),
       publishYear: 2018,
-      duration: '3:54',
-      genre: 'Pop',
+      duration: "3:54",
+      genre: "Pop"
     },
     {
       name: "She Don't Know",
@@ -121,8 +121,8 @@ export class DataFetchService {
       artist: "Millind Gaba",
       tracks: this.getSongs("millindgaba"),
       publishYear: 2019,
-     duration: '3:23',
-     genre: 'Hip-Hop/Rap',
+      duration: "3:23",
+      genre: "Hip-Hop/Rap"
     },
     {
       name: "Bekhayali",
@@ -131,8 +131,8 @@ export class DataFetchService {
       artist: "Kabir Singh",
       tracks: this.getSongs("kabirsingh"),
       publishYear: 2019,
-      duration: '6:12',
-      genre: 'Bollywood',
+      duration: "6:12",
+      genre: "Bollywood"
     }
   ];
 
@@ -141,37 +141,55 @@ export class DataFetchService {
       name: "Imagine Dragons",
       subscribers: "18M",
       thumbnail: "assets/thumbnail/music/artists/artist-imagine-dragons.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 358714030,
+      albums: this.getAlbums(358714030),
+      genre: "Alternative"
     },
     {
       name: "Linkin Park",
       subscribers: "14M",
       thumbnail: "assets/thumbnail/music/artists/artist-linkin-park.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 148662,
+      albums: this.getAlbums(148662),
+      genre: "Hard Rock"
     },
     {
       name: "Billie Eilish",
       subscribers: "17M",
       thumbnail: "assets/thumbnail/music/artists/artist-billie-eilish.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 1065981054,
+      albums: this.getAlbums(1065981054),
+      genre: "Alternative"
     },
     {
       name: "Coldplay",
       subscribers: "14M",
       thumbnail: "assets/thumbnail/music/artists/artist-coldplay.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 471744,
+      albums: this.getAlbums(471744),
+      genre: "Alternative",
     },
     {
       name: "The Chainsmokers",
       subscribers: "19M",
       thumbnail: "assets/thumbnail/music/artists/artist-the-chainsmokers.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 580391756,
+      albums: this.getAlbums(580391756),
+      genre: "Dance",
     },
     {
       name: "Maroon 5",
       subscribers: "24M",
       thumbnail: "assets/thumbnail/music/artists/artist-maroon-5.jpg",
-      mimeType: "artist"
+      mimeType: "artist",
+      artistId: 1798556,
+      albums: this.getAlbums(1798556),
+      genre: "Pop",
     }
   ];
 
@@ -194,6 +212,12 @@ export class DataFetchService {
     );
   }
 
+  getAlbumsForArtist(artistId: number): Observable<any> {
+    const tracks: ITracks[] = [];
+    return this.http.get(
+      `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=10`
+    );
+  }
 
   getSongs(artistName: string): ITracks[] {
     const tracks: ITracks[] = [];
@@ -209,15 +233,36 @@ export class DataFetchService {
             country: song.country,
             genre: song.primaryGenreName,
             duration: this.convertMillis(song.trackTimeMillis),
-            thumbnail: song.artworkUrl30,
+            thumbnail: song.artworkUrl30
           };
-          console.log("tracks", trackData);
+          // console.log("tracks", trackData);
           tracks.push(trackData);
         });
         console.log("final data", tracks);
       }
     );
     return tracks;
+  }
+
+  getAlbums(artistId: number): IAlbums[] {
+    const collections: IAlbums[] = [];
+    this.getAlbumsForArtist(artistId).subscribe((albums: any) => {
+      albums = albums.results.splice(1);
+      albums.forEach((album: any) => {
+        const albumData: IAlbums = {
+          albumName: this.processNames(album.collectionName),
+          albumImage: album.artworkUrl100,
+          albumTrackCount: album.trackCount,
+          albumGenre: album.primaryGenreName,
+          date: (album.releaseDate).split('-')[0],
+          price: album.collectionPrice
+        };
+        // console.log("albums", albumData);
+        collections.push(albumData);
+      });
+      console.log("final album", albums);
+    });
+    return collections;
   }
 
   convertMillis(time: number): string {
@@ -239,4 +284,21 @@ export class DataFetchService {
 
     return `${mins}:${secs}`;
   }
+
+
+  processNames(contentName: string): string {
+    const names = contentName.split(" ");
+    let count = 0;
+    names.forEach(name => {
+      names[count] = this.capitalizeFirstLetter(name);
+      count += 1;
+    });
+    return names.join(' ');
+  }
+
+   capitalizeFirstLetter(name: string) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
 }
+}
+
+

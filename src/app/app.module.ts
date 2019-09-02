@@ -24,6 +24,7 @@ import { ContentCardComponent } from "./components/content-card/content-card.com
 import { HorizontalScrollerModule } from "../app/utils/horizontal-scroller/horizontal-scroller.module";
 import { InfoDialogComponent } from "./components/info-dialog/info-dialog.component";
 import { HttpClientModule } from "@angular/common/http";
+import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClientModule } from "@angular/common/http";
     SearchResultComponent,
     HomePageComponent,
     ContentCardComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    AlbumInfoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { HttpClientModule } from "@angular/common/http";
     MatDialogModule,
     HorizontalScrollerModule
   ],
-  entryComponents: [InfoDialogComponent],
+  entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

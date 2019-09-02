@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ISong, IArtist } from "../../models/content-model";
 import { MatDialog } from "@angular/material/dialog";
 import { InfoDialogComponent } from "../info-dialog/info-dialog.component";
+import { AlbumInfoDialogComponent } from '../album-info-dialog/album-info-dialog.component';
 
 @Component({
   selector: "app-content-card",
@@ -22,7 +23,15 @@ export class ContentCardComponent implements OnInit {
     console.log("Content", content);
     const dialogRef = this.dialog.open(InfoDialogComponent, {
       width: "70%",
-      data: content,
+      data: content
+    });
+  }
+
+  artistClicked(artist: IArtist) {
+    console.log("Arist", artist);
+    const dialogRef = this.dialog.open(AlbumInfoDialogComponent, {
+      width: "70%",
+      data: artist
     });
   }
 }
