@@ -17,6 +17,7 @@ export interface ITracks {
   genre: string;
   duration: string;
   thumbnail: string;
+  trackId: number;
 }
 
 export interface IArtist {

@@ -233,7 +233,8 @@ export class DataFetchService {
             country: song.country,
             genre: song.primaryGenreName,
             duration: this.convertMillis(song.trackTimeMillis),
-            thumbnail: song.artworkUrl30
+            thumbnail: song.artworkUrl30,
+            trackId: song.trackId,
           };
           // console.log("tracks", trackData);
           tracks.push(trackData);
