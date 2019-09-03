@@ -15,9 +15,8 @@ mat-icon {
   font-size: 24px;
 }
 
-img{
-    transition-duration: 600ms;
-
+img {
+  transition-duration: 600ms;
 }
 
 img:hover {
@@ -30,4 +29,21 @@ img:hover {
 .loading-bar {
   position: sticky;
   top: 0;
+}
+
+.toolbar {
+  justify-content: space-between;
+}
+
+.heading {
+  font-size: 28px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+}
+
+.heading:hover {
+  border-bottom: 4px solid white;
+      transition: all .2s ease-out;
+    box-shadow:  0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset ;
 }

@@ -25,6 +25,7 @@ import { HorizontalScrollerModule } from "../app/utils/horizontal-scroller/horiz
 import { InfoDialogComponent } from "./components/info-dialog/info-dialog.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-info-dialog.component';
+import { ExploreComponent } from './components/explore/explore.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-i
     HomePageComponent,
     ContentCardComponent,
     InfoDialogComponent,
-    AlbumInfoDialogComponent
+    AlbumInfoDialogComponent,
+    ExploreComponent
   ],
   imports: [
     BrowserModule,
