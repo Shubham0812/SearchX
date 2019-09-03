@@ -253,6 +253,24 @@ export class DataFetchService {
       artistId: 1798556,
       albums: this.getAlbums(1798556),
       genre: "Pop"
+    },
+    {
+      name: "Raftaar",
+      subscribers: "2.4M",
+      thumbnail: "assets/thumbnail/music/artists/artist-raftaar.jpg",
+      mimeType: "artist",
+      artistId: 574786227,
+      albums: this.getAlbums(574786227),
+      genre: "Bollywood"
+    },
+    {
+      name: "Ed Sheeran",
+      subscribers: "41M",
+      thumbnail: "assets/thumbnail/music/artists/artist-ed-sheeran.jpg",
+      mimeType: "artist",
+      artistId: 183313439,
+      albums: this.getAlbums(183313439),
+      genre: "Pop"
     }
   ];
 

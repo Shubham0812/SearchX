@@ -63,6 +63,10 @@
   transition-duration: 800ms;
 }
 
+.overlay + .mat-title{
+    opacity: 1.0;
+}
+
 .n-overlay {
   opacity: 1 !important;
 }
