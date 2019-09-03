@@ -29,7 +29,7 @@
   </button>
 </div>
 <div>
-  <h3 class="mat-h3 margin-top-m">Other Popular Tracks by {{ data.artist }}</h3>
+  <h3 class="mat-h3 margin-top-m">Popular tracks by {{ data.artist }}</h3>
   <ul *ngFor="let track of data.tracks">
     <div class="list-item">
       <div class="flex align-center">
@@ -40,15 +40,25 @@
         >{{ track.albumName }}
       </span>
 
-      <div class = "flex align-center custom">
-        <mat-icon color="primary" class="bookmark" (click)="bookmark()">bookmark_border</mat-icon
+      <div class="flex align-center custom">
+        <mat-icon
+          color="primary"
+          class="bookmark"
+          (click)="bookmark(track.trackId)"
+          *ngIf="!bookmarkContent[track.trackId]"
+          >bookmark_border</mat-icon
         >
-            <span class = "margin-left-l">{{ track.duration }}</span>
-
+        <mat-icon
+          class="bookmark mat-primary-text"
+          *ngIf="bookmarkContent[track.trackId]"
+          (click)="bookmark(track.trackId)"
+          >bookmark</mat-icon
+        >
+        <span class="margin-left-l">{{ track.duration }}</span>
       </div>
     </div>
   </ul>
 </div>
-<div class ="flex add">
-    <button class = " mat-elevation-z4" mat-flat-button>Add to My List</button>
+<div class="flex add">
+  <button class=" mat-elevation-z4" mat-flat-button>Add to My List</button>
 </div>
