@@ -252,10 +252,11 @@ export class DataFetchService {
       albums.forEach((album: any) => {
         const albumData: IAlbums = {
           albumName: this.processNames(album.collectionName),
+          albumId: album.collectionId,
           albumImage: album.artworkUrl100,
           albumTrackCount: album.trackCount,
           albumGenre: album.primaryGenreName,
-          date: (album.releaseDate).split('-')[0],
+          date: album.releaseDate.split("-")[0],
           price: album.collectionPrice
         };
         // console.log("albums", albumData);

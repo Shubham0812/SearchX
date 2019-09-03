@@ -38,13 +38,13 @@
       <div class="albums">
         <div class="grid">
           <div>
-            <img class="image" [src]="album.albumImage" (click)="bookmark()" />
-            <mat-icon class="bookmark mat-primary-text" *ngIf="!bookmarkPressed"
+            <img class="image" [src]="album.albumImage" (click)="bookmark(album.albumId)" />
+            <mat-icon class="bookmark mat-primary-text" *ngIf="!bookmarkContent[album.albumId]"
               >bookmark_border</mat-icon
             >
-            <mat-icon class="bookmark mat-primary-text" *ngIf="bookmarkPressed"
+            <mat-icon class="bookmark mat-primary-text" *ngIf="bookmarkContent[album.albumId]"
               >bookmark</mat-icon
-            >
+            >        
           </div>
           <div class=" flex text-truncate">
             <p class="">{{ album.albumName }}</p>

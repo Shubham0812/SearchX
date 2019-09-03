@@ -32,6 +32,7 @@ export interface IArtist {
 
 export interface IAlbums {
   albumName: string;
+  albumId: number;
   albumImage: string;
   albumTrackCount: string;
   albumGenre: string;
