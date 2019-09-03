@@ -233,7 +233,8 @@ export class DataFetchService {
             country: song.country,
             genre: song.primaryGenreName,
             duration: this.convertMillis(song.trackTimeMillis),
-            thumbnail: song.artworkUrl30
+            thumbnail: song.artworkUrl30,
+            trackId: song.trackId,
           };
           // console.log("tracks", trackData);
           tracks.push(trackData);
@@ -251,10 +252,11 @@ export class DataFetchService {
       albums.forEach((album: any) => {
         const albumData: IAlbums = {
           albumName: this.processNames(album.collectionName),
+          albumId: album.collectionId,
           albumImage: album.artworkUrl100,
           albumTrackCount: album.trackCount,
           albumGenre: album.primaryGenreName,
-          date: (album.releaseDate).split('-')[0],
+          date: album.releaseDate.split("-")[0],
           price: album.collectionPrice
         };
         // console.log("albums", albumData);

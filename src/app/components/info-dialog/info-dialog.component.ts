@@ -1,8 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from "@angular/material/dialog";
+import { Component, OnInit, Inject } from "@angular/core";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 import { ISong } from "../../models/content-model";
 
@@ -12,6 +9,8 @@ import { ISong } from "../../models/content-model";
   styleUrls: ["./info-dialog.component.scss"]
 })
 export class InfoDialogComponent implements OnInit {
+  bookmarkPressed = false;
+  bookmarkContent = [];
   constructor(
     public dialogRef: MatDialogRef<InfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ISong
@@ -23,9 +22,14 @@ export class InfoDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.tracks.forEach(track => {
+      this.bookmarkContent[track.trackId] = false;
+    });
+  }
 
-  bookmark() {
-    console.log('bookmark');
+  bookmark(trackId: number) {
+    console.log("bookmark");
+    this.bookmarkContent[trackId] = !this.bookmarkContent[trackId];
   }
 }

@@ -17,6 +17,7 @@ export interface ITracks {
   genre: string;
   duration: string;
   thumbnail: string;
+  trackId: number;
 }
 
 export interface IArtist {
@@ -31,6 +32,7 @@ export interface IArtist {
 
 export interface IAlbums {
   albumName: string;
+  albumId: number;
   albumImage: string;
   albumTrackCount: string;
   albumGenre: string;
