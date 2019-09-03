@@ -1,9 +1,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "./themes.scss";
-@import './vars.scss';
-@import './utility.scss';
-@import './mixins.scss';
+@import "./vars.scss";
+@import "./utility.scss";
+@import "./mixins.scss";
 
 // Plus imports for other components in your app.
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
@@ -36,12 +36,20 @@ body {
   border-radius: 0;
 }
 
-
 .margin-left {
   margin-left: $size-m;
 }
 
-.mat-dialog-container{
-    background: rgba(18, 18, 18, 1);
+.mat-dialog-container {
+  background: rgba(18, 18, 18, 1);
+}
+
+mat-toolbar {
+  font-family: "Oswald", sans-serif !important;
+}
+
+
+.primaryTypography{
+  font-family: "Oswald", sans-serif !important;
 
 }
