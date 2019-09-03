@@ -9,6 +9,7 @@ import { IArtist } from 'src/app/models/content-model';
   styleUrls: ["./album-info-dialog.component.scss"]
 })
 export class AlbumInfoDialogComponent implements OnInit {
+  bookmarkPressed = false;
   constructor(
     public dialogRef: MatDialogRef<AlbumInfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IArtist
@@ -24,5 +25,6 @@ export class AlbumInfoDialogComponent implements OnInit {
 
   bookmark() {
     console.log("bookmark");
+    this.bookmarkPressed = !this.bookmarkPressed;
   }
 }
