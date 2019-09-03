@@ -14,6 +14,7 @@ export class SearchResultComponent implements OnInit {
   searchQuery: string;
 
   contents: ISong[];
+  latestSongs: ISong[];
   artists: IArtist[];
 
   constructor(
@@ -24,6 +25,7 @@ export class SearchResultComponent implements OnInit {
     console.log('Check data', this.contents);
     this.artists = this.dataFetchSvc.getArtists();
     console.log(this.artists);
+    this.latestSongs = this.dataFetchSvc.getLatestContent();
     this.dataFetchSvc.changeLoadState(false);
   }
 

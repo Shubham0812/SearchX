@@ -8,6 +8,16 @@
   </app-horizontal-scroller>
 </div>
 
+<h3>Latest Releases</h3>
+<div *ngIf="latestSongs">
+  <app-horizontal-scroller>
+    <app-content-card
+      *ngFor="let content of latestSongs"
+      [content]="content"
+    ></app-content-card>
+  </app-horizontal-scroller>
+</div>
+
 <h3>Trending Artists</h3>
 <div *ngIf="artists">
   <app-horizontal-scroller>

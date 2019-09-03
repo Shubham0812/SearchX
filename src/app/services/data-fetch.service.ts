@@ -10,7 +10,7 @@ import { Observable } from "rxjs";
 export class DataFetchService {
   private loadSource = new BehaviorSubject(false);
   currentState = this.loadSource.asObservable();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   content: ISong[] = [
     {
@@ -136,6 +136,69 @@ export class DataFetchService {
     }
   ];
 
+  latestSongs: ISong[] = [
+    {
+      name: "Take Me Back To London (Remix)",
+      thumbnail: "assets/thumbnail/music/latest-songs/ed-sheeran.jpg",
+      mimeType: "Song",
+      artist: "Ed Sheeran",
+      tracks: this.getSongs("Ed Sheeran"),
+      publishYear: 2019,
+      duration: "3:52",
+      genre: "Pop"
+    },
+    {
+      name: "Pal Pal Dil Ke Paas",
+      thumbnail: "assets/thumbnail/music/latest-songs/pal-pal.jpg",
+      mimeType: "Song",
+      artist: "Sachet–Parampara",
+      tracks: this.getSongs("Sachet–Parampara"),
+      publishYear: 2019,
+      duration: "4:14",
+      genre: "Bollywood"
+    },
+    {
+      name: "When It Comes To You",
+      thumbnail: "assets/thumbnail/music/latest-songs/sean-paul.jpg",
+      mimeType: "Song",
+      artist: "Sean Paul",
+      tracks: this.getSongs("Sean Paul"),
+      publishYear: 2019,
+      duration: "3:01",
+      genre: "Rock"
+    },
+    {
+      name: "Dilli Waali Baatcheet",
+      thumbnail: "assets/thumbnail/music/latest-songs/dilli-walli.jpg",
+      mimeType: "Song",
+      artist: "Raftaar",
+      tracks: this.getSongs("Raftaar"),
+      publishYear: 2019,
+      duration: "3:21",
+      genre: "Rap"
+    },
+    {
+      name: "Stay",
+      thumbnail: "assets/thumbnail/music/latest-songs/stay.jpg",
+      mimeType: "Song",
+      artist: "The Score",
+      tracks: this.getSongs("The Score"),
+      publishYear: 2019,
+      duration: "3:01",
+      genre: "Alternative"
+    },
+    {
+      name: "Angel",
+      thumbnail: "assets/thumbnail/music/latest-songs/angel.jpg",
+      mimeType: "Song",
+      artist: "Zack Knight",
+      tracks: this.getSongs("Zack Knight"),
+      publishYear: 2019,
+      duration: "2:55",
+      genre: "R & B"
+    }
+  ];
+
   artist: IArtist[] = [
     {
       name: "Imagine Dragons",
@@ -171,7 +234,7 @@ export class DataFetchService {
       mimeType: "artist",
       artistId: 471744,
       albums: this.getAlbums(471744),
-      genre: "Alternative",
+      genre: "Alternative"
     },
     {
       name: "The Chainsmokers",
@@ -180,7 +243,7 @@ export class DataFetchService {
       mimeType: "artist",
       artistId: 580391756,
       albums: this.getAlbums(580391756),
-      genre: "Dance",
+      genre: "Dance"
     },
     {
       name: "Maroon 5",
@@ -189,12 +252,16 @@ export class DataFetchService {
       mimeType: "artist",
       artistId: 1798556,
       albums: this.getAlbums(1798556),
-      genre: "Pop",
+      genre: "Pop"
     }
   ];
 
   getContent(): ISong[] {
     return this.content;
+  }
+
+  getLatestContent(): ISong[] {
+    return this.latestSongs;
   }
 
   getArtists(): IArtist[] {
@@ -234,7 +301,7 @@ export class DataFetchService {
             genre: song.primaryGenreName,
             duration: this.convertMillis(song.trackTimeMillis),
             thumbnail: song.artworkUrl30,
-            trackId: song.trackId,
+            trackId: song.trackId
           };
           // console.log("tracks", trackData);
           tracks.push(trackData);
@@ -287,7 +354,6 @@ export class DataFetchService {
     return `${mins}:${secs}`;
   }
 
-
   processNames(contentName: string): string {
     const names = contentName.split(" ");
     let count = 0;
@@ -295,12 +361,10 @@ export class DataFetchService {
       names[count] = this.capitalizeFirstLetter(name);
       count += 1;
     });
-    return names.join(' ');
+    return names.join(" ");
   }
 
-   capitalizeFirstLetter(name: string) {
+  capitalizeFirstLetter(name: string) {
     return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 }
-}
-
-
