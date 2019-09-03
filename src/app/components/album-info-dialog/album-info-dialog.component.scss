@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  img {
+    object-fit: cover;
+    width: 195px;
+    z-index: 0;
+    border-radius: 50%;
+  }
+  button {
+    justify-content: end;
+    margin-right: 20px;
+  }
+}
+.content {
+  display: flex;
+}
+
+.headline {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Oswald", sans-serif !important;
+    letter-spacing: 0.05em;
+  }
+}
+
+.close-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: black;
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  outline: none;
+  transform: translate3d(50%, -50%, 0);
+  cursor: pointer;
+  padding: 0;
+}
+
+.albums {
+  position: relative;
+  width: 140px;
+  height: 100%;
+  margin: 5px 15px;
+  font-family: Montserrat;
+  img {
+    width: 140px;
+    z-index: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.image {
+  transition-duration: 400ms;
+}
+
+.image:hover{
+    opacity: 0.3;
+}
+.image:hover + .bookmark {
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 0.3fr 0.1fr;
+}
+
+.text-truncate {
+  max-width: 100%;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.add {
+  justify-content: flex-end;
+}
+
+.bookmark {
+  position: absolute;
+  top: 60px;
+  left: 57px;
+  display: none;
+  cursor: pointer;
+}

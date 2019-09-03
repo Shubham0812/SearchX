@@ -30,7 +30,7 @@ mat-toolbar {
 }
 
 .search_container {
-  margin-top: 50px;
+  margin-top: 80px;
   justify-content: center;
 
   form {
@@ -52,80 +52,9 @@ mat-toolbar {
   mat-icon {
     font-size: 24px;
   }
-}
-
-.grid {
-  margin: 50px;
-
-  button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+  @include breakpoint-xs{
+    width: 59%;
   }
 }
 
-.margin-l {
-  margin-left: $size-m;
-}
 
-.explore {
-  margin-top: 95px;
-}
-
-.head-text {
-  font-family: Oswald, "sans-serif";
-}
-
-.background-songs {
-  background-image: url("/assets/tile/songs-tile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: -150px;
-  cursor: pointer;
-  @include breakpoint-lt-s {
-    background-position-y: 0px;
-  }
-}
-.background-books {
-  background-image: url("/assets/tile/books-tile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: -90px;
-  @include breakpoint-lt-s {
-    background-position-y: 0px;
-  }
-}
-.background-games {
-  background-image: url("/assets/tile/games-tile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.background-movies {
-  background-image: url("/assets/tile/movies-tile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: -120px;
-  @include breakpoint-lt-s {
-    background-position-x: 0px;
-  }
-}
-
-.overlay {
-  opacity: 0.6;
-  transition-duration: 1100ms;
-
-  button {
-    opacity: 1;
-  }
-}
-
-.n-overlay {
-  opacity: 1 !important;
-}
-
-.overlay:hover {
-  opacity: 1;
-  transition-duration: 1100ms;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-}

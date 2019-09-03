@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { IContent, IArtist } from "../../models/content-model";
+import { ISong, IArtist } from "../../models/content-model";
+import { MatDialog } from "@angular/material/dialog";
+import { InfoDialogComponent } from "../info-dialog/info-dialog.component";
+import { AlbumInfoDialogComponent } from '../album-info-dialog/album-info-dialog.component';
 
 @Component({
   selector: "app-content-card",
@@ -7,12 +10,28 @@ import { IContent, IArtist } from "../../models/content-model";
   styleUrls: ["./content-card.component.scss"]
 })
 export class ContentCardComponent implements OnInit {
-  @Input() content: IContent;
+  @Input() content: ISong;
   @Input() artist: IArtist;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {}
 
   focusImage() {}
+
+  contentClicked(content: ISong) {
+    console.log("Content", content);
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      width: "70%",
+      data: content
+    });
+  }
+
+  artistClicked(artist: IArtist) {
+    console.log("Arist", artist);
+    const dialogRef = this.dialog.open(AlbumInfoDialogComponent, {
+      width: "70%",
+      data: artist
+    });
+  }
 }

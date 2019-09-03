@@ -1,0 +1,56 @@
+<div class="container">
+  <div>
+    <div class="content">
+      <img [src]="data.thumbnail" class="" />
+      <div class="headline">
+        <h1
+          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold"
+          color="mat-primary-text"
+        >
+          {{ data.name }}
+        </h1>
+        <h2 class="mat-title margin-left-l">
+          {{ data.subscribers }} Subscribers
+        </h2>
+        <div class="flex">
+          <mat-icon color="primary" class=" margin-left-l"
+            >calendar_today</mat-icon
+          >
+          <h4 class="mat-h4 margin-left-xs">{{ data.albums.length }}</h4>
+          <mat-icon color="primary" class=" margin-left-l">timer</mat-icon>
+          <h4 class="mat-h4 margin-left-xs">{{ data }}</h4>
+          <mat-icon color="primary" class=" margin-left-l">audiotrack</mat-icon>
+          <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="close-button margin-top-m" (click)="onClose()">
+    <mat-icon aria-label="Next" role="button">close</mat-icon>
+  </button>
+</div>
+
+<div>
+  <h3 class="mat-h3 margin-top-m">Albums by {{ data.name }}</h3>
+  <app-horizontal-scroller>
+    <ng-container *ngFor="let album of data.albums">
+      <div class="albums">
+        <div class="grid">
+          <div>
+            <img class = "image" [src]="album.albumImage" />
+            <mat-icon class="bookmark mat-primary-text">bookmark_border</mat-icon>
+          </div>
+          <div class=" flex text-truncate">
+            <p class="">{{ album.albumName }}</p>
+          </div>
+          <p class="flex margin-top-xs">{{ album.date }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </app-horizontal-scroller>
+</div>
+
+<div class="flex add">
+  <button class=" mat-elevation-z4" mat-flat-button>Add to My List</button>
+</div>

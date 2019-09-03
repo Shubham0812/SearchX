@@ -1,0 +1,54 @@
+<div class="container">
+  <div>
+    <div class="content">
+      <img [src]="data.thumbnail" class="" />
+      <div class="headline">
+        <h1
+          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold"
+          color="mat-primary-text"
+        >
+          {{ data.name }}
+        </h1>
+        <h2 class="mat-title margin-left-l">{{ data.artist }}</h2>
+        <div class="flex">
+          <mat-icon color="primary" class=" margin-left-l"
+            >calendar_today</mat-icon
+          >
+          <h4 class="mat-h4 margin-left-xs">{{ data.publishYear }}</h4>
+          <mat-icon color="primary" class=" margin-left-l">timer</mat-icon>
+          <h4 class="mat-h4 margin-left-xs">{{ data.duration }}</h4>
+          <mat-icon color="primary" class=" margin-left-l">subject</mat-icon>
+          <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="close-button margin-top-m" (click)="onClose()">
+    <mat-icon aria-label="Next" role="button">close</mat-icon>
+  </button>
+</div>
+<div>
+  <h3 class="mat-h3 margin-top-m">Other Popular Tracks by {{ data.artist }}</h3>
+  <ul *ngFor="let track of data.tracks">
+    <div class="list-item">
+      <div class="flex align-center">
+        <img [src]="track.thumbnail" />
+        <span class="margin-left-s">{{ track.trackName }}</span>
+      </div>
+      <span class="margin-remove-bottom mat-h4 op70"
+        >{{ track.albumName }}
+      </span>
+
+      <div class = "flex align-center custom">
+        <mat-icon color="primary" class="bookmark" (click)="bookmark()">bookmark_border</mat-icon
+        >
+            <span class = "margin-left-l">{{ track.duration }}</span>
+
+      </div>
+    </div>
+  </ul>
+</div>
+<div class ="flex add">
+    <button class = " mat-elevation-z4" mat-flat-button>Add to My List</button>
+</div>
