@@ -26,6 +26,7 @@ import { InfoDialogComponent } from "./components/info-dialog/info-dialog.compon
 import { HttpClientModule } from "@angular/common/http";
 import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-info-dialog.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { MyListComponent } from './components/my-list/my-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ExploreComponent } from './components/explore/explore.component';
     ContentCardComponent,
     InfoDialogComponent,
     AlbumInfoDialogComponent,
-    ExploreComponent
+    ExploreComponent,
+    MyListComponent
   ],
   imports: [
     BrowserModule,
