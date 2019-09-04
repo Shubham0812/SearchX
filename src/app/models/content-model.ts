@@ -7,6 +7,7 @@ export interface ISong {
   publishYear: number;
   duration: string;
   genre: string;
+  songId: number;
 }
 
 export interface ITracks {
