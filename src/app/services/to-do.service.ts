@@ -1,25 +1,26 @@
-import { Injectable } from '@angular/core';
-import { IToDo } from '../models/to-do-model';
+import { Injectable } from "@angular/core";
+import { IToDo } from "../models/to-do-model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ToDoService {
+  toDoList: IToDo[] = [];
 
-  toDoList: IToDo[];
-
-  constructor() { }
-
+  constructor() {}
 
   addToDo(content: IToDo) {
     this.toDoList.push(content);
   }
 
   displayToDo() {
-    console.log('To-Do List', this.toDoList);
+    console.log("To-Do List", this.toDoList);
   }
 
-  removeFromToDo() {
-    console.log('Removed call');
+  removeFromToDo(id: number) {
+    console.log("Removed call");
+    this.toDoList = this.toDoList.filter(element => {
+      return element.id !== id;
+    });
   }
 }

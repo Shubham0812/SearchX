@@ -13,7 +13,7 @@ export class DataFetchService {
 
   content: ISong[] = [
     {
-      name: "Machayenge",
+      trackName: "Machayenge",
       thumbnail: "assets/thumbnail/music/songs/emiway-machayenge.jpg",
       mimeType: "Song",
       artist: "Emiway",
@@ -21,10 +21,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "2:33",
       genre: "Hip-Hop/Rap",
-      songId: 1231
+      trackId: 1231
     },
     {
-      name: "Buniyaad",
+      trackName: "Buniyaad",
       thumbnail: "assets/thumbnail/music/songs/yellow-diary-buniyaad.jpg",
       mimeType: "Song",
       artist: "The Yellow Diary",
@@ -32,10 +32,10 @@ export class DataFetchService {
       publishYear: 2018,
       duration: "4:16",
       genre: "Indian Pop",
-      songId: 1314
+      trackId: 1314
     },
     {
-      name: "Shotgun",
+      trackName: "Shotgun",
       thumbnail: "assets/thumbnail/music/songs/george-ezra-shotgun.jpg",
       mimeType: "Song",
       artist: "George Ezra",
@@ -43,10 +43,10 @@ export class DataFetchService {
       publishYear: 2018,
       duration: "3:21",
       genre: "Singer/Songwriter",
-      songId: 13113
+      trackId: 13113
     },
     {
-      name: "Good Things Fall Apart",
+      trackName: "Good Things Fall Apart",
       thumbnail: "assets/thumbnail/music/songs/illenium-good-things.jpg",
       mimeType: "Song",
       artist: "Illenium",
@@ -54,10 +54,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:37",
       genre: "Dance",
-      songId: 1314141
+      trackId: 1314141
     },
     {
-      name: "Birds",
+      trackName: "Birds",
       thumbnail: "assets/thumbnail/music/songs/imagine-dragons-birds.jpg",
       mimeType: "Song",
       artist: "Imagine Dragons",
@@ -65,10 +65,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:39",
       genre: "Alternative",
-      songId: 131414
+      trackId: 131414
     },
     {
-      name: "Azadi",
+      trackName: "Azadi",
       thumbnail: "assets/thumbnail/music/songs/gully-boy-azadi.jpg",
       mimeType: "Song",
       artist: "Gully Boy",
@@ -76,10 +76,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "2:35",
       genre: "Hip-Hop/Rap",
-      songId: 1310
+      trackId: 1310
     },
     {
-      name: "Yahin Hoon Main",
+      trackName: "Yahin Hoon Main",
       thumbnail:
         "assets/thumbnail/music/songs/ayushmann-khurrana-yahin-hoon-main.jpg",
       mimeType: "Song",
@@ -88,10 +88,10 @@ export class DataFetchService {
       publishYear: 2017,
       duration: "3:58",
       genre: "Bollywood",
-      songId: 1362
+      trackId: 1362
     },
     {
-      name: "New Divide",
+      trackName: "New Divide",
       thumbnail: "assets/thumbnail/music/songs/linkin-park-new-divide.jpg",
       mimeType: "Song",
       artist: "Linkin Park",
@@ -99,10 +99,10 @@ export class DataFetchService {
       publishYear: 2009,
       duration: "4:28",
       genre: "Rock",
-      songId: 13643
+      trackId: 13643
     },
     {
-      name: "Bad Guy",
+      trackName: "Bad Guy",
       thumbnail: "assets/thumbnail/music/songs/billie-eilish-bad-guy.jpg",
       mimeType: "Song",
       artist: "Billie Eilish",
@@ -110,10 +110,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:14",
       genre: "Alternative",
-      songId: 1152
+      trackId: 1152
     },
     {
-      name: "Marz",
+      trackName: "Marz",
       thumbnail: "assets/thumbnail/music/songs/yellow-diary-marz.jpg",
       mimeType: "Song",
       artist: "The Yellow Diary",
@@ -121,10 +121,10 @@ export class DataFetchService {
       publishYear: 2018,
       duration: "3:54",
       genre: "Pop",
-      songId: 13151
+      trackId: 13151
     },
     {
-      name: "She Don't Know",
+      trackName: "She Don't Know",
       thumbnail: "assets/thumbnail/music/songs/millind-gaba-she-dont-know.jpg",
       mimeType: "Song",
       artist: "Millind Gaba",
@@ -132,10 +132,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:23",
       genre: "Hip-Hop/Rap",
-      songId: 1235
+      trackId: 1235
     },
     {
-      name: "Bekhayali",
+      trackName: "Bekhayali",
       thumbnail: "assets/thumbnail/music/songs/kabir-singh-bekhayali.jpg",
       mimeType: "Song",
       artist: "Kabir Singh",
@@ -143,7 +143,7 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "6:12",
       genre: "Bollywood",
-      songId: 1526
+      trackId: 1526
     }
   ];
 
@@ -155,7 +155,7 @@ export class DataFetchService {
 
   latestSongs: ISong[] = [
     {
-      name: "Take Me Back To London (Remix)",
+      trackName: "Take Me Back To London (Remix)",
       thumbnail: "assets/thumbnail/music/latest-songs/ed-sheeran.jpg",
       mimeType: "Song",
       artist: "Ed Sheeran",
@@ -163,10 +163,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:52",
       genre: "Pop",
-      songId: 113
+      trackId: 113
     },
     {
-      name: "Pal Pal Dil Ke Paas",
+      trackName: "Pal Pal Dil Ke Paas",
       thumbnail: "assets/thumbnail/music/latest-songs/pal-pal.jpg",
       mimeType: "Song",
       artist: "Sachet–Parampara",
@@ -174,10 +174,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "4:14",
       genre: "Bollywood",
-      songId: 1515
+      trackId: 1515
     },
     {
-      name: "When It Comes To You",
+      trackName: "When It Comes To You",
       thumbnail: "assets/thumbnail/music/latest-songs/sean-paul.jpg",
       mimeType: "Song",
       artist: "Sean Paul",
@@ -185,10 +185,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:01",
       genre: "Rock",
-      songId: 515
+      trackId: 515
     },
     {
-      name: "Dilli Waali Baatcheet",
+      trackName: "Dilli Waali Baatcheet",
       thumbnail: "assets/thumbnail/music/latest-songs/dilli-walli.jpg",
       mimeType: "Song",
       artist: "Raftaar",
@@ -196,10 +196,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:21",
       genre: "Rap",
-      songId: 1014
+      trackId: 1014
     },
     {
-      name: "Stay",
+      trackName: "Stay",
       thumbnail: "assets/thumbnail/music/latest-songs/stay.jpg",
       mimeType: "Song",
       artist: "The Score",
@@ -207,10 +207,10 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "3:01",
       genre: "Alternative",
-      songId: 2051
+      trackId: 2051
     },
     {
-      name: "Angel",
+      trackName: "Angel",
       thumbnail: "assets/thumbnail/music/latest-songs/angel.jpg",
       mimeType: "Song",
       artist: "Zack Knight",
@@ -218,7 +218,7 @@ export class DataFetchService {
       publishYear: 2019,
       duration: "2:55",
       genre: "R & B",
-      songId: 1132
+      trackId: 1132
     }
   ];
 

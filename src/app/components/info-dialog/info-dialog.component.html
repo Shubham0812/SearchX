@@ -11,14 +11,29 @@
         </h1>
         <h2 class="mat-title margin-left-l">{{ data.artist }}</h2>
         <div class="flex">
-          <mat-icon color="primary" class=" margin-left-l">calendar_today</mat-icon>
+          <mat-icon color="primary" class=" margin-left-l"
+            >calendar_today</mat-icon
+          >
           <h4 class="mat-h4 margin-left-xs">{{ data.publishYear }}</h4>
           <mat-icon color="primary" class=" margin-left-l">timer</mat-icon>
           <h4 class="mat-h4 margin-left-xs">{{ data.duration }}</h4>
           <mat-icon color="primary" class=" margin-left-l">subject</mat-icon>
           <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
-                    <mat-icon color="primary" class=" margin-left-xl">bookmark_border</mat-icon>
-          <h4 class="mat-h4 margin-left-xs"> Add to My List </h4>
+          <mat-icon
+            color="primary"
+            class=" margin-left-xl pointer"
+            (click)="bookmark(data.trackId,data)"
+            *ngIf="!bookmarkContent[data.trackId]"
+            >bookmark_border</mat-icon
+          >
+          <mat-icon
+            color="primary"
+            class="margin-left-xl pointer"
+            *ngIf="bookmarkContent[data.trackId]"
+            (click)="bookmark(data.trackId,data)"
+            >bookmark</mat-icon
+          >
+          <h4 class="mat-h4 margin-left-xs">Add to My List</h4>
         </div>
       </div>
     </div>
@@ -28,7 +43,7 @@
     <mat-icon aria-label="Next" role="button">close</mat-icon>
   </button>
 </div>
-          <!-- <div class="add">
+<!-- <div class="add">
         <button class=" mat-elevation-z4" mat-flat-button>
           Add to My List
         </button>
@@ -49,14 +64,14 @@
         <mat-icon
           color="primary"
           class="bookmark"
-          (click)="bookmark(track.trackId)"
+          (click)="bookmark(track.trackId,track)"
           *ngIf="!bookmarkContent[track.trackId]"
           >bookmark_border</mat-icon
         >
         <mat-icon
           class="bookmark mat-primary-text"
           *ngIf="bookmarkContent[track.trackId]"
-          (click)="bookmark(track.trackId)"
+          (click)="bookmark(track.trackId, track)"
           >bookmark</mat-icon
         >
         <span class="margin-left-l">{{ track.duration }}</span>

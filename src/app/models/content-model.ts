@@ -1,5 +1,5 @@
 export interface ISong {
-  name: string;
+  trackName: string;
   thumbnail: string;
   mimeType: string;
   artist: string;
@@ -7,7 +7,7 @@ export interface ISong {
   publishYear: number;
   duration: string;
   genre: string;
-  songId: number;
+  trackId: number;
 }
 
 export interface ITracks {
