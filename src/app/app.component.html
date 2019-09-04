@@ -7,8 +7,10 @@
 
 <mat-toolbar #toolbar class="mat-elevation-z6 flex toolbar">
     <img (click) ="navigateHome()" class="logo" src="../assets/logo/logo.png" />
-    <div>
-    <p class = " heading primaryTypography margin-right-l padding-bottom-xs" [routerLink]="['/explore']">Explore</p>  
+    <div class = "heading">
+    <p class = "  primaryTypography margin-right-l padding-bottom-xs" [routerLink]="['/explore']">Explore</p>  
+        <p class = "  primaryTypography margin-right-l padding-bottom-xs" [routerLink]="['/explore']">My List</p>  
+
     </div>
 </mat-toolbar>
 
