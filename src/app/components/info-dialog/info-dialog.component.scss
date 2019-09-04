@@ -68,5 +68,14 @@ ul:hover{
 
 
 .add{
-    justify-content: flex-end;
+text-align: right;
+}
+
+.icons-display{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pointer{
+  cursor: pointer;
 }
