@@ -10,7 +10,6 @@ import { Observable } from "rxjs";
 export class DataFetchService {
   private loadSource = new BehaviorSubject(false);
   currentState = this.loadSource.asObservable();
-  constructor(private http: HttpClient) {}
 
   content: ISong[] = [
     {
@@ -21,7 +20,8 @@ export class DataFetchService {
       tracks: this.getSongs("emiway"),
       publishYear: 2019,
       duration: "2:33",
-      genre: "Hip-Hop/Rap"
+      genre: "Hip-Hop/Rap",
+      songId: 1231
     },
     {
       name: "Buniyaad",
@@ -31,7 +31,8 @@ export class DataFetchService {
       tracks: this.getSongs("theyellowdiary"),
       publishYear: 2018,
       duration: "4:16",
-      genre: "Indian Pop"
+      genre: "Indian Pop",
+      songId: 1314
     },
     {
       name: "Shotgun",
@@ -41,7 +42,8 @@ export class DataFetchService {
       tracks: this.getSongs("georgeezra"),
       publishYear: 2018,
       duration: "3:21",
-      genre: "Singer/Songwriter"
+      genre: "Singer/Songwriter",
+      songId: 13113
     },
     {
       name: "Good Things Fall Apart",
@@ -51,7 +53,8 @@ export class DataFetchService {
       tracks: this.getSongs("illenium"),
       publishYear: 2019,
       duration: "3:37",
-      genre: "Dance"
+      genre: "Dance",
+      songId: 1314141
     },
     {
       name: "Birds",
@@ -61,7 +64,8 @@ export class DataFetchService {
       tracks: this.getSongs("imaginedragons"),
       publishYear: 2019,
       duration: "3:39",
-      genre: "Alternative"
+      genre: "Alternative",
+      songId: 131414
     },
     {
       name: "Azadi",
@@ -71,7 +75,8 @@ export class DataFetchService {
       tracks: this.getSongs("gullyboy"),
       publishYear: 2019,
       duration: "2:35",
-      genre: "Hip-Hop/Rap"
+      genre: "Hip-Hop/Rap",
+      songId: 1310
     },
     {
       name: "Yahin Hoon Main",
@@ -82,7 +87,8 @@ export class DataFetchService {
       tracks: this.getSongs("ayushmannkhurrana"),
       publishYear: 2017,
       duration: "3:58",
-      genre: "Bollywood"
+      genre: "Bollywood",
+      songId: 1362
     },
     {
       name: "New Divide",
@@ -92,7 +98,8 @@ export class DataFetchService {
       tracks: this.getSongs("linkinpark"),
       publishYear: 2009,
       duration: "4:28",
-      genre: "Rock"
+      genre: "Rock",
+      songId: 13643
     },
     {
       name: "Bad Guy",
@@ -102,7 +109,8 @@ export class DataFetchService {
       tracks: this.getSongs("billieeilish"),
       publishYear: 2019,
       duration: "3:14",
-      genre: "Alternative"
+      genre: "Alternative",
+      songId: 1152
     },
     {
       name: "Marz",
@@ -112,7 +120,8 @@ export class DataFetchService {
       tracks: this.getSongs("theyellowdiary"),
       publishYear: 2018,
       duration: "3:54",
-      genre: "Pop"
+      genre: "Pop",
+      songId: 13151
     },
     {
       name: "She Don't Know",
@@ -122,7 +131,8 @@ export class DataFetchService {
       tracks: this.getSongs("millindgaba"),
       publishYear: 2019,
       duration: "3:23",
-      genre: "Hip-Hop/Rap"
+      genre: "Hip-Hop/Rap",
+      songId: 1235
     },
     {
       name: "Bekhayali",
@@ -132,9 +142,16 @@ export class DataFetchService {
       tracks: this.getSongs("kabirsingh"),
       publishYear: 2019,
       duration: "6:12",
-      genre: "Bollywood"
+      genre: "Bollywood",
+      songId: 1526
     }
   ];
+
+  constructor(private http: HttpClient) {
+    this.shuffle(this.content);
+    this.shuffle(this.artist);
+    this.shuffle(this.latestSongs);
+  }
 
   latestSongs: ISong[] = [
     {
@@ -145,7 +162,8 @@ export class DataFetchService {
       tracks: this.getSongs("Ed Sheeran"),
       publishYear: 2019,
       duration: "3:52",
-      genre: "Pop"
+      genre: "Pop",
+      songId: 113
     },
     {
       name: "Pal Pal Dil Ke Paas",
@@ -155,7 +173,8 @@ export class DataFetchService {
       tracks: this.getSongs("Sachet–Parampara"),
       publishYear: 2019,
       duration: "4:14",
-      genre: "Bollywood"
+      genre: "Bollywood",
+      songId: 1515
     },
     {
       name: "When It Comes To You",
@@ -165,7 +184,8 @@ export class DataFetchService {
       tracks: this.getSongs("Sean Paul"),
       publishYear: 2019,
       duration: "3:01",
-      genre: "Rock"
+      genre: "Rock",
+      songId: 515
     },
     {
       name: "Dilli Waali Baatcheet",
@@ -175,7 +195,8 @@ export class DataFetchService {
       tracks: this.getSongs("Raftaar"),
       publishYear: 2019,
       duration: "3:21",
-      genre: "Rap"
+      genre: "Rap",
+      songId: 1014
     },
     {
       name: "Stay",
@@ -185,7 +206,8 @@ export class DataFetchService {
       tracks: this.getSongs("The Score"),
       publishYear: 2019,
       duration: "3:01",
-      genre: "Alternative"
+      genre: "Alternative",
+      songId: 2051
     },
     {
       name: "Angel",
@@ -195,7 +217,8 @@ export class DataFetchService {
       tracks: this.getSongs("Zack Knight"),
       publishYear: 2019,
       duration: "2:55",
-      genre: "R & B"
+      genre: "R & B",
+      songId: 1132
     }
   ];
 
@@ -384,5 +407,8 @@ export class DataFetchService {
 
   capitalizeFirstLetter(name: string) {
     return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+  shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
   }
 }
