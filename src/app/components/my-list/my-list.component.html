@@ -5,5 +5,13 @@
     >My List</span
   >
 
-  <p class = "margin-top-xl margin-left-l mat-h2 flex justify-center">Your Saved / Bookmarked data will be displayed here</p>
+  <h4 class = "margin-top-xl margin-left-l mat-h2 flex justify-center" *ngIf="!savedList.length">Your Saved / Bookmarked data will be displayed here</h4>
+
+<div class = "flex justify-center">
+    <p class = "  explore primaryTypography margin-right-l padding-bottom-xs" (click) = "toggleData('all')">All</p>  
+        <p class = " my-list primaryTypography margin-right-l padding-bottom-xs" [routerLink]="['/myList']">Songs</p>  
+
+</div>
+
+<div *ngIf="showAll margin-top-m">Hahahrahrahrahrah</div>
 </div>

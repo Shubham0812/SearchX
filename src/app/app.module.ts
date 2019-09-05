@@ -18,6 +18,8 @@ import {
   MatGridListModule,
   MatDialogModule,
 } from "@angular/material";
+import { MatTabsModule } from "@angular/material/tabs";
+
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ContentCardComponent } from "./components/content-card/content-card.component";
@@ -56,7 +58,8 @@ import { MyListComponent } from './components/my-list/my-list.component';
     MatRippleModule,
     MatGridListModule,
     MatDialogModule,
-    HorizontalScrollerModule
+    HorizontalScrollerModule,
+    MatTabsModule
   ],
   entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent],
   providers: [],
