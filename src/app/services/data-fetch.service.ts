@@ -347,7 +347,7 @@ export class DataFetchService {
           // console.log("tracks", trackData);
           tracks.push(trackData);
         });
-        console.log("final data", tracks);
+        // console.log("final data", tracks);
       }
     );
     return tracks;
@@ -370,7 +370,7 @@ export class DataFetchService {
         // console.log("albums", albumData);
         collections.push(albumData);
       });
-      console.log("final album", albums);
+      // console.log("final album", albums);
     });
     return collections;
   }
@@ -378,15 +378,6 @@ export class DataFetchService {
   convertMillis(time: number): string {
     const secondConvertRate = 0.001;
     const seconds = secondConvertRate * time;
-    console.log(
-      "seconds ",
-      seconds,
-      " now ",
-      Math.floor(seconds / 60),
-      "=>",
-      Math.round(seconds % 60),
-      "check seconds"
-    );
 
     const mins = Math.floor(seconds / 60);
     let secs = String(Math.round(seconds % 60));

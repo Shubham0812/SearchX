@@ -23,4 +23,8 @@ export class ToDoService {
       return element.id !== id;
     });
   }
+
+  toDoListData(): IToDo[] {
+    return this.toDoList;
+  }
 }
