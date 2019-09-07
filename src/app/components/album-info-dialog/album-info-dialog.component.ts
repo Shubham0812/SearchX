@@ -18,6 +18,7 @@ export class AlbumInfoDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: IArtist
   ) {
     console.log("dialog open", data);
+    this.bookmarkContent[data.artistId] = false;
   }
 
   onClose(): void {

@@ -5,16 +5,15 @@ import { IToDo } from "../models/to-do-model";
   providedIn: "root"
 })
 export class ToDoService {
-  toDoList: IToDo[] = [];
+  toDoList: IToDo[];
 
-  constructor() {}
+  constructor() {
+    this.toDoList = this.fetchToDoListData();
+  }
 
   addToDo(content: IToDo) {
     this.toDoList.push(content);
-  }
-
-  displayToDo() {
-    console.log("To-Do List", this.toDoList);
+    this.saveToLocalStorage();
   }
 
   removeFromToDo(id: number) {
@@ -22,9 +21,20 @@ export class ToDoService {
     this.toDoList = this.toDoList.filter(element => {
       return element.id !== id;
     });
+    this.saveToLocalStorage();
   }
 
-  toDoListData(): IToDo[] {
-    return this.toDoList;
+  fetchToDoListData(): IToDo[] {
+    const fetchData = localStorage.getItem("my-list-data");
+    if (fetchData === null) {
+      return this.toDoList;
+    } else {
+      return JSON.parse(fetchData);
+    }
+  }
+
+  saveToLocalStorage() {
+    const stringify = JSON.stringify(this.toDoList);
+    localStorage.setItem("my-list-data", stringify);
   }
 }

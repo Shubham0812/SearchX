@@ -1,4 +1,4 @@
-<div class="container margin-top-xl">
+<div class="container margin-top-xl" *ngIf="fetchStatus==='done'">
   <span
     color="primary"
     class="mat-display-2 head-text margin-left-xl margin-right-xl "
@@ -6,13 +6,13 @@
   >
 
   <h4
-    class="margin-top-xl margin-left-l mat-h2 flex justify-center"
+    class="info margin-left-l mat-h2 flex justify-center"
     *ngIf="!savedList.length"
   >
     Your Saved / Bookmarked data will be displayed here
   </h4>
 
-  <div class="flex justify-center">
+  <div class="flex justify-center" *ngIf="savedList.length">
     <p
       class="  explore primaryTypography margin-right-l padding-bottom-xs"
       [ngClass]= "{'showAll': selected}"
@@ -29,7 +29,7 @@
   </div>
 
   <div *ngIf="showAll" class="margin-top-m container">
-      <div class="flex">
+      <div class="flex card-container">
     <ng-container *ngFor="let data of savedList">
       <app-my-list-card [cardData]=data></app-my-list-card>
     </ng-container>

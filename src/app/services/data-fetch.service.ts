@@ -10,6 +10,7 @@ import { Observable } from "rxjs";
 export class DataFetchService {
   private loadSource = new BehaviorSubject(false);
   currentState = this.loadSource.asObservable();
+  bookmarkContent = [];
 
   content: ISong[] = [
     {
@@ -151,6 +152,9 @@ export class DataFetchService {
     this.shuffle(this.content);
     this.shuffle(this.artist);
     this.shuffle(this.latestSongs);
+    this.content.forEach(song => {
+      this.bookmarkContent[song.trackId] = false;
+    });
   }
 
   latestSongs: ISong[] = [

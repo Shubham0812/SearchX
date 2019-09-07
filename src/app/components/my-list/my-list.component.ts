@@ -9,10 +9,14 @@ import { IToDo } from "src/app/models/to-do-model";
 export class MyListComponent implements OnInit {
   showAll = true;
   savedList: IToDo[] = [];
-  constructor(private toDoSvc: ToDoService) {}
+  fetchStatus = 'none';
+  constructor(private toDoSvc: ToDoService) {
+    this.savedList = this.toDoSvc.fetchToDoListData();
+    this.fetchStatus = 'done';
+  }
 
   ngOnInit() {
-    this.savedList = this.toDoSvc.toDoListData();
+    console.log("savedList", this.savedList);
   }
 
   toggleData(tab: string) {
