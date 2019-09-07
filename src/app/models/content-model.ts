@@ -41,3 +41,10 @@ export interface IAlbums {
   date: string;
   price: number;
 }
+
+export interface IBooks {
+  artistName: string;
+  artistId: number;
+  bookName: string;
+  thumbnail: string;
+}

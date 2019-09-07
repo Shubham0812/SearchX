@@ -3,4 +3,5 @@ export interface IToDo {
   name: string;
   id: number;
   type: string;
+  subType: string;
 }
