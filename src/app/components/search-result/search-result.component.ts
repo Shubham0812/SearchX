@@ -22,11 +22,18 @@ export class SearchResultComponent implements OnInit {
     private dataFetchSvc: DataFetchService
   ) {
     this.contents = this.dataFetchSvc.getContent();
-    console.log('Check data', this.contents);
+    console.log("Check data", this.contents);
     this.artists = this.dataFetchSvc.getArtists();
     console.log(this.artists);
     this.latestSongs = this.dataFetchSvc.getLatestContent();
+    this.dataFetchSvc.fillBookmarkFromStorage();
     this.dataFetchSvc.changeLoadState(false);
+
+    console.log(
+      "Check bookcontent",
+      this.dataFetchSvc.getBookmarkData(),
+      this.dataFetchSvc.bookmarkContent.length
+    );
   }
 
   ngOnInit() {

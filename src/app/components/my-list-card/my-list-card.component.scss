@@ -1,0 +1,96 @@
+.card {
+  padding: 0;
+}
+
+.card-container {
+  position: relative;
+  width: 195px;
+  margin: 20px 15px;
+}
+
+.song-image {
+  img {
+    width: 195px;
+    z-index: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  transition-duration: 800ms;
+}
+
+.artist-image {
+  img {
+    object-fit: cover;
+    width: 195px;
+    z-index: 0;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  transition-duration: 800ms;
+}
+
+.album-image {
+  img {
+    width: 195px;
+    z-index: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  transition-duration: 800ms;
+}
+
+.song-image:hover .image{
+  opacity: 0.3;
+}
+
+.song-image:hover > .buttons{
+  opacity: 1;
+}
+
+.artist-image:hover .image{
+  opacity: 0.3;
+}
+
+.artist-image:hover > .buttons{
+  opacity: 1;
+}
+
+.album-image:hover .image{
+  opacity: 0.3;
+}
+
+.album-image:hover > .buttons{
+  opacity: 1;
+}
+
+
+.image{
+  transition-duration: 400ms;
+}
+
+.information {
+  margin-top: 10px;
+  color: white;
+}
+
+.title {
+  font-weight: bolder;
+  display: flex;
+}
+.description {
+  color: #aaa;
+}
+
+.type-close {
+  position: absolute;
+  top: 0px;
+  left: 170px;
+  cursor: pointer;
+}
+
+.buttons {
+  position: absolute;
+  opacity: 0.3;
+  top: 0;
+}
+

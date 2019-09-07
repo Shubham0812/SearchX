@@ -21,6 +21,21 @@
           <h4 class="mat-h4 margin-left-xs">{{ data }}</h4>
           <mat-icon color="primary" class=" margin-left-l">audiotrack</mat-icon>
           <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
+                  <mat-icon
+            color="primary"
+            class=" margin-left-xl pointer"
+            (click)="bookmarkArtist(data.artistId,data)"
+            *ngIf="!this.dataFetchSvc.bookmarkContent[data.artistId]"
+            >bookmark_border</mat-icon
+          >
+          <mat-icon
+            color="primary"
+            class="margin-left-xl pointer"
+            *ngIf="this.dataFetchSvc.bookmarkContent[data.artistId]"
+            (click)="bookmarkArtist(data.artistId,data)"
+            >bookmark</mat-icon
+          >
+          <h4 class="mat-h4 margin-left-xs">Add to My List</h4>
         </div>
       </div>
     </div>
@@ -38,11 +53,11 @@
       <div class="albums">
         <div class="grid">
           <div>
-            <img class="image" [src]="album.albumImage" (click)="bookmark(album.albumId)" />
-            <mat-icon class="bookmark mat-primary-text" *ngIf="!bookmarkContent[album.albumId]"
+            <img class="image" [src]="album.albumImage" (click)="bookmark(album.albumId,album)" />
+            <mat-icon class="bookmark mat-primary-text" *ngIf="!this.dataFetchSvc.bookmarkContent[album.albumId]"
               >bookmark_border</mat-icon
             >
-            <mat-icon class="bookmark mat-primary-text" *ngIf="bookmarkContent[album.albumId]"
+            <mat-icon class="bookmark mat-primary-text" *ngIf="this.dataFetchSvc.bookmarkContent[album.albumId]"
               >bookmark</mat-icon
             >        
           </div>
@@ -54,8 +69,4 @@
       </div>
     </ng-container>
   </app-horizontal-scroller>
-</div>
-
-<div class="flex add">
-  <button class=" mat-elevation-z4" mat-flat-button>Add to My List</button>
 </div>

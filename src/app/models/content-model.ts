@@ -19,6 +19,7 @@ export interface ITracks {
   duration: string;
   thumbnail: string;
   trackId: number;
+  biggerThumbnail: string;
 }
 
 export interface IArtist {
@@ -39,4 +40,11 @@ export interface IAlbums {
   albumGenre: string;
   date: string;
   price: number;
+}
+
+export interface IBooks {
+  artistName: string;
+  artistId: number;
+  bookName: string;
+  thumbnail: string;
 }

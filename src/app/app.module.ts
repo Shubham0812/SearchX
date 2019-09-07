@@ -18,6 +18,8 @@ import {
   MatGridListModule,
   MatDialogModule,
 } from "@angular/material";
+import { MatTabsModule } from "@angular/material/tabs";
+
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ContentCardComponent } from "./components/content-card/content-card.component";
@@ -27,6 +29,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-info-dialog.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { MyListComponent } from './components/my-list/my-list.component';
+import { MyListCardComponent } from './components/my-list-card/my-list-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { MyListComponent } from './components/my-list/my-list.component';
     InfoDialogComponent,
     AlbumInfoDialogComponent,
     ExploreComponent,
-    MyListComponent
+    MyListComponent,
+    MyListCardComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { MyListComponent } from './components/my-list/my-list.component';
     MatRippleModule,
     MatGridListModule,
     MatDialogModule,
-    HorizontalScrollerModule
+    HorizontalScrollerModule,
+    MatTabsModule
   ],
   entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent],
   providers: [],
