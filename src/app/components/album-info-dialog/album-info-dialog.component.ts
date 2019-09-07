@@ -42,7 +42,8 @@ export class AlbumInfoDialogComponent implements OnInit {
         name: album.albumName,
         image: album.albumImage,
         id: album.albumId,
-        type: "Album"
+        type: "Music",
+        subType: "Album"
       };
       this.toDoSvc.addToDo(data);
     } else {
@@ -62,7 +63,8 @@ export class AlbumInfoDialogComponent implements OnInit {
         name: artist.name,
         image: artist.thumbnail,
         id: artist.artistId,
-        type: "Artist"
+        type: "Music",
+        subType: "Artist"
       };
       this.toDoSvc.addToDo(data);
     } else {
