@@ -41,12 +41,11 @@ export class InfoDialogComponent implements OnInit {
         id: track.trackId,
         type: "Song"
       };
-      this.toDoSvc.toDoList.push(data);
+      this.toDoSvc.addToDo(data);
     } else {
       this.toDoSvc.removeFromToDo(trackId);
     }
 
     this.bookmarkContent[trackId] = !this.bookmarkContent[trackId];
-    console.log("Check svc", this.toDoSvc.toDoList);
   }
 }

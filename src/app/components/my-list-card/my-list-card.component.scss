@@ -1,0 +1,42 @@
+.card {
+  padding: 0;
+}
+
+// mat-card{
+//     border: 1px solid red;
+// }
+.card-container {
+  position: relative;
+  width: 195px;
+//   height: 100%;
+  margin: 20px 10px;
+  cursor: pointer;
+}
+
+.image:hover {
+  opacity: 0.625;
+}
+.image {
+  img {
+    width: 195px;
+    z-index: 0;
+    border-radius: 5px;
+  }
+  transition-duration: 800ms;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.information {
+  margin-top: 10px;
+  color: white;
+}
+.title {
+  font-weight: bolder;
+  display: flex;
+}
+.description {
+  color: #aaa;
+}

@@ -4,7 +4,7 @@
                 <img  [src] = 'content.thumbnail' (focus) = "focusImage()">
             </div>
             <div class = "song-information">
-                <span  [ngClass] = "{'song-title' : content.artist, 'artist-title' : content.subscribers}">{{content.name}}</span>
+                <span  [ngClass] = "{'song-title' : content.artist, 'artist-title' : content.subscribers}">{{content.trackName}}</span>
                 <span class = "song-description" *ngIf = "content.artist">{{content.mimeType}} • {{content.artist}}</span>
             </div>
         </mat-card>

@@ -7,13 +7,12 @@ import { IToDo } from "src/app/models/to-do-model";
   styleUrls: ["./my-list.component.scss"]
 })
 export class MyListComponent implements OnInit {
-  showAll = false;
+  showAll = true;
   savedList: IToDo[] = [];
   constructor(private toDoSvc: ToDoService) {}
 
   ngOnInit() {
     this.savedList = this.toDoSvc.toDoListData();
-    console.log("Check list", this.savedList);
   }
 
   toggleData(tab: string) {

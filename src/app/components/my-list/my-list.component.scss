@@ -17,14 +17,11 @@ p:hover {
   box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset;
 }
 
-// .explore {
-//   position: absolute;
-//   right: 45%;
-//   top: 30%;
-// }
+.container{
+  margin-left:60px;
+  margin-right:60px;
+}
 
-// .my-list {
-//   position: absolute;
-//   top: 30%;
-//   right: 40%;
-// }
+.selected{
+    border-bottom: 4px solid white;
+}

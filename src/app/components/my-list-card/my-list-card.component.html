@@ -1,0 +1,11 @@
+<div class = "card-container" *ngIf="cardData">
+        <mat-card  class = "card">
+            <div class ="image" >
+                <img  [src] = 'cardData.image'>
+            </div>
+            <div class = "information">
+                <span  class = "artist-title">{{cardData.name}}</span>
+            </div>
+        </mat-card>
+</div>
+
