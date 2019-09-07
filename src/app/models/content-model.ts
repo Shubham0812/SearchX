@@ -19,6 +19,7 @@ export interface ITracks {
   duration: string;
   thumbnail: string;
   trackId: number;
+  biggerThumbnail: string;
 }
 
 export interface IArtist {
