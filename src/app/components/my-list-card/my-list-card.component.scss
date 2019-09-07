@@ -9,14 +9,14 @@
   position: relative;
   width: 195px;
 //   height: 100%;
-  margin: 20px 10px;
+  margin: 20px 15px;
   cursor: pointer;
 }
 
-.image:hover {
+.song-image:hover {
   opacity: 0.625;
 }
-.image {
+.song-image {
   img {
     width: 195px;
     z-index: 0;
@@ -39,4 +39,14 @@
 }
 .description {
   color: #aaa;
+}
+
+.artist-image {
+  img {
+    object-fit: cover;
+    width: 195px;
+    z-index: 0;
+    border-radius: 50%;
+  }
+    transition-duration: 800ms;
 }

@@ -17,19 +17,20 @@ p:hover {
   box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset;
 }
 
-.container{
-  margin-left:60px;
-  margin-right:60px;
+.container {
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
-.selected{
-    border-bottom: 4px solid white;
+.selected {
+  border-bottom: 4px solid white;
 }
 
-.info{
-  margin-top:50px;
+.info {
+  margin-top: 80px;
 }
 
-.card-container{
+.card-container {
   flex-wrap: wrap;
+  padding: 0 30px;
 }

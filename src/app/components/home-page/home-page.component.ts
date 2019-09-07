@@ -37,7 +37,8 @@ export class HomePageComponent implements OnInit {
     console.log("Constructor called");
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onSubmit() {
     if (this.searchForm.value !== "") {

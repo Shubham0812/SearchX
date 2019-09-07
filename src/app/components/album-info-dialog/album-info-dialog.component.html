@@ -25,13 +25,13 @@
             color="primary"
             class=" margin-left-xl pointer"
             (click)="bookmarkArtist(data.artistId,data)"
-            *ngIf="!bookmarkContent[data.trackId]"
+            *ngIf="!this.dataFetchSvc.bookmarkContent[data.artistId]"
             >bookmark_border</mat-icon
           >
           <mat-icon
             color="primary"
             class="margin-left-xl pointer"
-            *ngIf="bookmarkContent[data.artistId]"
+            *ngIf="this.dataFetchSvc.bookmarkContent[data.artistId]"
             (click)="bookmarkArtist(data.artistId,data)"
             >bookmark</mat-icon
           >
@@ -54,10 +54,10 @@
         <div class="grid">
           <div>
             <img class="image" [src]="album.albumImage" (click)="bookmark(album.albumId,album)" />
-            <mat-icon class="bookmark mat-primary-text" *ngIf="!bookmarkContent[album.albumId]"
+            <mat-icon class="bookmark mat-primary-text" *ngIf="!this.dataFetchSvc.bookmarkContent[album.albumId]"
               >bookmark_border</mat-icon
             >
-            <mat-icon class="bookmark mat-primary-text" *ngIf="bookmarkContent[album.albumId]"
+            <mat-icon class="bookmark mat-primary-text" *ngIf="this.dataFetchSvc.bookmarkContent[album.albumId]"
               >bookmark</mat-icon
             >        
           </div>
