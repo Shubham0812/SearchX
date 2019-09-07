@@ -36,14 +36,16 @@ export class InfoDialogComponent implements OnInit {
           name: track.trackName,
           image: track.biggerThumbnail,
           id: track.trackId,
-          type: "Song"
+          type: "Music",
+          subType: 'Song'
         };
       } else {
         data = {
           name: track.trackName,
           image: track.thumbnail,
           id: track.trackId,
-          type: "Song"
+          type: "Music",
+          subType: 'Song'
         };
       }
       this.toDoSvc.addToDo(data);

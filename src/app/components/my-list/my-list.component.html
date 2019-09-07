@@ -1,4 +1,4 @@
-<div class="container margin-top-xl" *ngIf="fetchStatus==='done'">
+<div class="container margin-top-xl" *ngIf="fetchStatus === 'done'">
   <span
     color="primary"
     class="mat-display-2 head-text margin-left-xl margin-right-xl "
@@ -7,33 +7,39 @@
 
   <h4
     class="info margin-left-l mat-h2 flex justify-center"
-    *ngIf="!savedList.length"
+    *ngIf="!toDoSvc.toDoList.length"
   >
     Your Saved / Bookmarked data will be displayed here
   </h4>
 
-  <div class="flex justify-center" *ngIf="savedList.length">
-    <p
-      class="  explore primaryTypography margin-right-l padding-bottom-xs"
-      [ngClass]= "{'showAll': selected}"
-      (click)="toggleData('all')"
-    >
-      All
-    </p>
-    <p
-      class=" my-list primaryTypography margin-right-l padding-bottom-xs"
-      [routerLink]="['/myList']"
-    >
-      Songs
-    </p>
+  <div class="flex justify-center" *ngIf="toDoSvc.toDoList.length">
+    <ng-container *ngFor="let item of searchTabs; let idx = index">
+      <p
+        class="  primaryTypography primary margin-right-l padding-bottom-xs margin-remove-bottom mat-p-hover"
+        [ngClass]="{ selected: item.activated === true }"
+        (click)="toggleData(item.name)"
+      >
+        {{ item.name }}
+      </p>
+    </ng-container>
+  </div>
+  <div class="flex justify-center" *ngIf="searchTabs[selectedIndex].subTypes.length">
+    <ng-container *ngFor="let tab of searchTabs[selectedIndex].subTypes">
+          <p
+        class="  primaryTypography mat-p-hover secondary margin-top-m margin-right-l padding-bottom-xs"
+        (click)="toggleSubData(tab.name)" [ngClass]="{ selected: tab.activated === true }"
+      >
+        {{ tab.name }}
+      </p>
+    </ng-container>
+
   </div>
 
   <div class="margin-top-m flex justify-center">
-      <div class="flex card-container">
-    <ng-container *ngFor="let data of savedList">
-      <app-my-list-card [cardData]=data></app-my-list-card>
-    </ng-container>
+    <div class="flex card-container">
+      <ng-container *ngFor="let data of savedList">
+        <app-my-list-card [cardData]="data" (cardRemoved)= "refreshCards($event)"></app-my-list-card>
+      </ng-container>
+    </div>
   </div>
-  </div>
-
 </div>

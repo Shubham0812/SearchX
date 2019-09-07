@@ -7,15 +7,22 @@
 }
 
 p {
-  font-size: 24px;
   border-bottom: 4px solid transparent;
 }
 
-p:hover {
-  border-bottom: 4px solid white;
-  transition: all 0.2s ease-out;
-  box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset;
+.primary{
+    font-size: 24px;
 }
+
+.secondary{
+  font-size: 18px;
+}
+
+// p:hover {
+//   border-bottom: 4px solid white;
+//   transition: all 0.2s ease-out;
+//   box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset;
+// }
 
 .container {
   margin-left: 40px;
@@ -24,6 +31,7 @@ p:hover {
 
 .selected {
   border-bottom: 4px solid white;
+  box-shadow: 0 -1px 0 0 white inset, 0 -2px 0 0 #212121 inset;
 }
 
 .info {

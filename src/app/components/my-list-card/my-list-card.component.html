@@ -1,11 +1,20 @@
-<div class = "card-container" *ngIf="cardData">
-        <mat-card  class = "card">
-            <div [ngClass] ="{'song-image': cardData.type==='Song', 'artist-image' : cardData.type==='Artist'}" >
-                <img  [src] = 'cardData.image'>
-            </div>
-            <div class = "information">
-                <span  class = "artist-title">{{cardData.name}}</span>
-            </div>
-        </mat-card>
+<div class="card-container" *ngIf="cardData">
+  <mat-card class="card mat-elevation-z0">
+    <div
+      [ngClass]="{
+        'song-image': cardData.subType === 'Song',
+        'artist-image': cardData.subType === 'Artist',
+        'album-image': cardData.subType === 'Album'
+      }"
+    >
+      <img [src]="cardData.image" class="image" />
+      <div class="buttons" >
+        <mat-icon class=" mat-primary-text">music_note</mat-icon>
+        <mat-icon class=" type-close mat-primary-text" (click)="remove(cardData.id)" >cancel</mat-icon>
+      </div>
+    </div>
+    <div class="information">
+      <span class="artist-title">{{ cardData.name }}</span>
+    </div>
+  </mat-card>
 </div>
-
