@@ -3,6 +3,8 @@ import { ISong, IArtist, ITracks, IAlbums } from "../models/content-model";
 import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { ToDoService } from "../services/to-do.service";
+import { IToDo } from "../models/to-do-model";
 
 @Injectable({
   providedIn: "root"
@@ -148,15 +150,6 @@ export class DataFetchService {
     }
   ];
 
-  constructor(private http: HttpClient) {
-    this.shuffle(this.content);
-    this.shuffle(this.artist);
-    this.shuffle(this.latestSongs);
-    this.content.forEach(song => {
-      this.bookmarkContent[song.trackId] = false;
-    });
-  }
-
   latestSongs: ISong[] = [
     {
       trackName: "Take Me Back To London (Remix)",
@@ -301,6 +294,25 @@ export class DataFetchService {
     }
   ];
 
+  constructor(private http: HttpClient, private toDoSvc: ToDoService) {
+    this.shuffle(this.content);
+    this.shuffle(this.artist);
+    this.shuffle(this.latestSongs);
+    this.content.forEach(song => {
+      this.bookmarkContent[song.trackId] = false;
+    });
+
+    this.latestSongs.forEach(song => {
+      this.bookmarkContent[song.trackId] = false;
+    });
+
+    this.artist.forEach(artist => {
+      this.bookmarkContent[artist.artistId] = false;
+    });
+
+    console.log("Check it", this.bookmarkContent);
+  }
+
   getContent(): ISong[] {
     return this.content;
   }
@@ -318,14 +330,12 @@ export class DataFetchService {
   }
 
   getTracksForArtist(artist: string): Observable<any> {
-    const tracks: ITracks[] = [];
     return this.http.get(
       `https://itunes.apple.com/search?term=${artist.toLowerCase()}&limit=5`
     );
   }
 
   getAlbumsForArtist(artistId: number): Observable<any> {
-    const tracks: ITracks[] = [];
     return this.http.get(
       `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=10`
     );
@@ -346,12 +356,13 @@ export class DataFetchService {
             genre: song.primaryGenreName,
             duration: this.convertMillis(song.trackTimeMillis),
             thumbnail: song.artworkUrl30,
+            biggerThumbnail: song.artworkUrl100,
             trackId: song.trackId
           };
-          // console.log("tracks", trackData);
+          this.bookmarkContent[trackData.trackId] = false;
+
           tracks.push(trackData);
         });
-        // console.log("final data", tracks);
       }
     );
     return tracks;
@@ -371,7 +382,7 @@ export class DataFetchService {
           date: album.releaseDate.split("-")[0],
           price: album.collectionPrice
         };
-        // console.log("albums", albumData);
+        this.bookmarkContent[albumData.albumId] = false;
         collections.push(albumData);
       });
       // console.log("final album", albums);
@@ -405,5 +416,19 @@ export class DataFetchService {
   }
   shuffle(array) {
     array.sort(() => Math.random() - 0.5);
+  }
+
+  getBookmarkData(): any[] {
+    return this.bookmarkContent;
+  }
+
+  fillBookmarkFromStorage() {
+    const myList = this.toDoSvc.fetchToDoListData();
+    if (myList !== null) {
+      console.log("My list", myList);
+      myList.forEach((list: IToDo) => {
+        this.bookmarkContent[list.id] = true;
+      });
+    }
   }
 }

@@ -5,7 +5,7 @@ import { IToDo } from "../models/to-do-model";
   providedIn: "root"
 })
 export class ToDoService {
-  toDoList: IToDo[];
+  toDoList: IToDo[] = [];
 
   constructor() {
     this.toDoList = this.fetchToDoListData();
