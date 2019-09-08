@@ -53,6 +53,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: -120px;
+    cursor: pointer;
+
   @include breakpoint-lt-s {
     background-position-x: 0px;
   }

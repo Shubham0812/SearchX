@@ -8,17 +8,18 @@
         <mat-grid-tile
           [colspan]="3"
           [rowspan]="2"
-          (click) = "gridClicked('songs')"
+          (click) = "gridClicked('music')"
           class="mat-elevation-z6 background-songs overlay"
         >
-          <button class = "mat-title" (click)="gridClicked('Songs')">Music</button>
+          <button class = "mat-title" >Music</button>
         </mat-grid-tile>
                 <mat-grid-tile
           [colspan]="1"
           [rowspan]="4"
           class="mat-elevation-z6 background-movies overlay"
+          (click)="gridClicked('Movies')"
         >
-          <button class = "mat-title" (click)="gridClicked('Movies')">Movies</button>
+          <button class = "mat-title">Movies</button>
         </mat-grid-tile>
           <mat-grid-tile
           [colspan]="1"

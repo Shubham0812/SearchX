@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { ISong, IArtist } from "../../models/content-model";
+import { ISong, IArtist, IMovie } from "../../models/content-model";
 import { MatDialog } from "@angular/material/dialog";
 import { InfoDialogComponent } from "../info-dialog/info-dialog.component";
 import { AlbumInfoDialogComponent } from '../album-info-dialog/album-info-dialog.component';
@@ -12,6 +12,7 @@ import { AlbumInfoDialogComponent } from '../album-info-dialog/album-info-dialog
 export class ContentCardComponent implements OnInit {
   @Input() content: ISong;
   @Input() artist: IArtist;
+  @Input() movie: IMovie;
 
   constructor(private dialog: MatDialog) {}
 

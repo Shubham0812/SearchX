@@ -33,7 +33,9 @@
             (click)="bookmark(data.trackId,data)"
             >bookmark</mat-icon
           >
-          <h4 class="mat-h4 margin-left-xs">Add to My List</h4>
+          <h4 class="mat-h4 margin-left-xs" *ngIf="!dataFetchSvc.bookmarkContent[data.trackId]">Add to My List</h4>
+                    <h4 class="mat-h4 margin-left-xs" *ngIf="dataFetchSvc.bookmarkContent[data.trackId]">Remove from My List</h4>
+
         </div>
       </div>
     </div>

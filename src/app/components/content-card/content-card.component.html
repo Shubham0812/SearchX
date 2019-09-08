@@ -24,3 +24,15 @@
 </div>
 
 
+<div class = "card-container" *ngIf="movie">
+        <mat-card  class = "song-card" (click) = "contentClicked(content)">
+            <div class = "song-image" >
+                <img  [src] = 'movie.thumbnail' (focus) = "focusImage()">
+            </div>
+            <div class = "song-information">
+                <span class = "song-title">{{movie.movieName}}</span>
+                <span class = "song-description" *ngIf = "movie.directorName">{{movie.directorName}}</span>
+            </div>
+        </mat-card>
+</div>
+

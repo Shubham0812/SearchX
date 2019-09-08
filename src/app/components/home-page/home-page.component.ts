@@ -47,10 +47,10 @@ export class HomePageComponent implements OnInit {
       this.searched = true;
       // this.searchForm.reset();
     }
-    if (this.searchForm.controls.searchQuery.value.includes("song")) {
+    if (this.searchForm.controls.searchQuery.value.includes("music")) {
       console.log("song query");
       setTimeout(() => {
-        this.router.navigate(["/search", "song"]);
+        this.router.navigate(["/search", "music"]);
       }, 600);
     } else {
       this.searchForm.reset();
@@ -63,10 +63,10 @@ export class HomePageComponent implements OnInit {
 
   gridClicked(data: string) {
     console.log("grid tile", data);
-    if (data.toLowerCase() === "songs") {
+    if (data.toLowerCase() === "music") {
       this.dataFetchSvc.changeLoadState(true);
       setTimeout(_ => {
-        this.router.navigate(["/search/song"]);
+        this.router.navigate(["/search/music"]);
       }, 600);
     }
   }

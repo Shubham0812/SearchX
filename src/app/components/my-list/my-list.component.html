@@ -23,23 +23,35 @@
       </p>
     </ng-container>
   </div>
-  <div class="flex justify-center" *ngIf="searchTabs[selectedIndex].subTypes.length">
+  <div
+    class="flex justify-center margin-right-s"
+    *ngIf="searchTabs[selectedIndex].subTypes.length && toDoSvc.toDoList.length"
+  >
     <ng-container *ngFor="let tab of searchTabs[selectedIndex].subTypes">
-          <p
+      <p
         class="  primaryTypography mat-p-hover secondary margin-top-m margin-right-l padding-bottom-xs"
-        (click)="toggleSubData(tab.name)" [ngClass]="{ selected: tab.activated === true }"
+        (click)="toggleSubData(tab.name)"
+        [ngClass]="{ selected: tab.activated === true }"
       >
         {{ tab.name }}
       </p>
     </ng-container>
-
   </div>
 
   <div class="margin-top-m flex justify-center">
     <div class="flex card-container">
       <ng-container *ngFor="let data of savedList">
-        <app-my-list-card [cardData]="data" (cardRemoved)= "refreshCards($event)"></app-my-list-card>
+        <app-my-list-card
+          [cardData]="data"
+          (cardRemoved)="refreshCards($event)"
+        ></app-my-list-card>
       </ng-container>
+      <h4
+        class="margin-top-xl margin-left-l mat-h2 flex justify-center"
+        *ngIf="!savedList.length"
+      >
+      Currently, you don't have any saved data here :P
+      </h4>
     </div>
   </div>
 </div>

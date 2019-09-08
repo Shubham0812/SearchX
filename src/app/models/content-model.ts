@@ -47,4 +47,5 @@ export interface IBooks {
   artistId: number;
   bookName: string;
   thumbnail: string;
+  genre: string;
 }

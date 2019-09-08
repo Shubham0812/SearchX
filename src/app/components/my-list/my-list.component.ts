@@ -38,6 +38,11 @@ export class MyListComponent implements OnInit {
       ]
     },
     {
+      name: "Movies",
+      activated: false,
+      subTypes: []
+    },
+    {
       name: "Books",
       activated: false,
       subTypes: [{ name: "Author", activated: false }]
@@ -98,7 +103,7 @@ export class MyListComponent implements OnInit {
         });
         this.savedList = dataFetch;
 
-        // console.log("Check subtoggle", dataFetch);
+        console.log("after subtoggle", dataFetch);
       } else {
         subTab.activated = false;
       }

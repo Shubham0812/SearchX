@@ -1,0 +1,9 @@
+<h3>All time Popular Movies</h3>
+<div *ngIf="popularMovies">
+  <app-horizontal-scroller>
+    <app-content-card
+      *ngFor="let movie of popularMovies"
+      [movie]="movie"
+    ></app-content-card>
+  </app-horizontal-scroller>
+</div>

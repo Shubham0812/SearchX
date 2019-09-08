@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { DataFetchService } from "../../services/data-fetch.service";
 import { Router } from "@angular/router";
 
@@ -28,10 +28,15 @@ export class ExploreComponent implements OnInit {
 
   gridClicked(data: string) {
     console.log("grid tile", data);
-    if (data.toLowerCase() === "songs") {
+    if (data.toLowerCase() === "music") {
       this.dataFetchSvc.changeLoadState(true);
       setTimeout(_ => {
-        this.router.navigate(["/search/song"]);
+        this.router.navigate(["/search/music"]);
+      }, 600);
+    } else if (data.toLowerCase() === "movies") {
+      this.dataFetchSvc.changeLoadState(true);
+      setTimeout(_ => {
+        this.router.navigate(["/search/movies"]);
       }, 600);
     }
   }
