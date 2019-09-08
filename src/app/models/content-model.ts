@@ -49,3 +49,12 @@ export interface IBooks {
   thumbnail: string;
   genre: string;
 }
+
+export interface IMovie {
+  movieName: string;
+  movieId: number;
+  genre: string;
+  year: number;
+  directorName: string;
+  thumbnail: string;
+}

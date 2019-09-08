@@ -4,6 +4,7 @@ import { SearchResultComponent } from "./components/search-result/search-result.
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ExploreComponent } from "./components/explore/explore.component";
 import { MyListComponent } from "./components/my-list/my-list.component";
+import { MovieResultComponent } from './components/movie-result/movie-result.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: "home",
     component: HomePageComponent
+  },
+  {
+    path: "search/movies",
+    component: MovieResultComponent
   },
   {
     path: "search/:query",

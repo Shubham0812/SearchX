@@ -1,5 +1,11 @@
 import { Injectable } from "@angular/core";
-import { ISong, IArtist, ITracks, IAlbums } from "../models/content-model";
+import {
+  ISong,
+  IArtist,
+  ITracks,
+  IAlbums,
+  IMovie
+} from "../models/content-model";
 import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -294,6 +300,73 @@ export class DataFetchService {
     }
   ];
 
+  popularMovie: IMovie[] = [
+    {
+      movieName: "The Dark Knight",
+      movieId: 764632601,
+      genre: "Action & Adventure",
+      directorName: "Christopher Nolan",
+      year: 2008,
+      thumbnail: "assets/thumbnail/movies/popular/dark-knight.png"
+    },
+    {
+      movieName: "Forrest Gump",
+      movieId: 314029341,
+      genre: "Drama",
+      directorName: "Robert Zemeckis",
+      year: 1994,
+      thumbnail: "assets/thumbnail/movies/popular/forest-gump.jpg"
+    },
+    {
+      movieName: "Braveheart",
+      movieId: 270007336,
+      genre: "Documentary",
+      directorName: "Mel Gibson",
+      year: 1995,
+      thumbnail: "assets/thumbnail/movies/popular/braveheart.jpg"
+    },
+    {
+      movieName: "Gladiator",
+      movieId: 397380075,
+      genre: "Drama",
+      directorName: "Ridley Scott",
+      year: 1992,
+      thumbnail: "assets/thumbnail/movies/popular/gladiator.jpg"
+    },
+    {
+      movieName: "The Shawshank Redemption",
+      movieId: 2024797,
+      genre: "Drama",
+      directorName: "Stephen King",
+      year: 1994,
+      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
+    },
+    {
+      movieName: "Schindler's List",
+      movieId: 587742072,
+      genre: "Drama",
+      directorName: "Steven Spielberg",
+      year: 1993,
+      thumbnail: "assets/thumbnail/movies/popular/schindler's-list.jpg"
+    },
+    {
+      movieName: "The Shawshank Redemption",
+      movieId: 2024797,
+      genre: "Drama",
+      directorName: "Stephen King",
+      year: 1994,
+      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
+    },
+    {
+      movieName: "The Shawshank Redemption",
+      movieId: 2024797,
+      genre: "Drama",
+      directorName: "Stephen King",
+      year: 1994,
+      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
+    }
+  ];
+
   constructor(private http: HttpClient, private toDoSvc: ToDoService) {
     this.shuffle(this.content);
     this.shuffle(this.artist);
@@ -323,6 +396,10 @@ export class DataFetchService {
 
   getArtists(): IArtist[] {
     return this.artist;
+  }
+
+  getPopularMovies(): IMovie[] {
+    return this.popularMovie;
   }
 
   changeLoadState(state: boolean) {

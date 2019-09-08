@@ -30,6 +30,7 @@ import { AlbumInfoDialogComponent } from './components/album-info-dialog/album-i
 import { ExploreComponent } from './components/explore/explore.component';
 import { MyListComponent } from './components/my-list/my-list.component';
 import { MyListCardComponent } from './components/my-list-card/my-list-card.component';
+import { MovieResultComponent } from './components/movie-result/movie-result.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MyListCardComponent } from './components/my-list-card/my-list-card.comp
     AlbumInfoDialogComponent,
     ExploreComponent,
     MyListComponent,
-    MyListCardComponent
+    MyListCardComponent,
+    MovieResultComponent
   ],
   imports: [
     BrowserModule,
