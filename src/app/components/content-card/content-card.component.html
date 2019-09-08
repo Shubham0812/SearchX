@@ -25,7 +25,7 @@
 
 
 <div class = "card-container" *ngIf="movie">
-        <mat-card  class = "song-card" (click) = "contentClicked(content)">
+        <mat-card  class = "song-card" (click) = "movieClicked(movie)">
             <div class = "song-image" >
                 <img  [src] = 'movie.thumbnail' (focus) = "focusImage()">
             </div>

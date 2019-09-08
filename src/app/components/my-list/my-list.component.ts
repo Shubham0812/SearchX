@@ -38,7 +38,7 @@ export class MyListComponent implements OnInit {
       ]
     },
     {
-      name: "Movies",
+      name: "Movie",
       activated: false,
       subTypes: []
     },

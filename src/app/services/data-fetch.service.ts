@@ -4,7 +4,8 @@ import {
   IArtist,
   ITracks,
   IAlbums,
-  IMovie
+  IMovie,
+  IDirector
 } from "../models/content-model";
 import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -307,7 +308,8 @@ export class DataFetchService {
       genre: "Action & Adventure",
       directorName: "Christopher Nolan",
       year: 2008,
-      thumbnail: "assets/thumbnail/movies/popular/dark-knight.png"
+      thumbnail: "assets/thumbnail/movies/popular/dark-knight.png",
+      movies: this.getMovies("Christopher Nolan")
     },
     {
       movieName: "Forrest Gump",
@@ -315,7 +317,8 @@ export class DataFetchService {
       genre: "Drama",
       directorName: "Robert Zemeckis",
       year: 1994,
-      thumbnail: "assets/thumbnail/movies/popular/forest-gump.jpg"
+      thumbnail: "assets/thumbnail/movies/popular/forest-gump.jpg",
+      movies: this.getMovies("Robert Zemeckis")
     },
     {
       movieName: "Braveheart",
@@ -323,7 +326,8 @@ export class DataFetchService {
       genre: "Documentary",
       directorName: "Mel Gibson",
       year: 1995,
-      thumbnail: "assets/thumbnail/movies/popular/braveheart.jpg"
+      thumbnail: "assets/thumbnail/movies/popular/braveheart.jpg",
+      movies: this.getMovies("Mel Gibson")
     },
     {
       movieName: "Gladiator",
@@ -331,7 +335,8 @@ export class DataFetchService {
       genre: "Drama",
       directorName: "Ridley Scott",
       year: 1992,
-      thumbnail: "assets/thumbnail/movies/popular/gladiator.jpg"
+      thumbnail: "assets/thumbnail/movies/popular/gladiator.jpg",
+      movies: this.getMovies("Ridley Scott")
     },
     {
       movieName: "The Shawshank Redemption",
@@ -339,7 +344,8 @@ export class DataFetchService {
       genre: "Drama",
       directorName: "Stephen King",
       year: 1994,
-      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
+      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png",
+      movies: this.getMovies("Stephen King")
     },
     {
       movieName: "Schindler's List",
@@ -347,23 +353,17 @@ export class DataFetchService {
       genre: "Drama",
       directorName: "Steven Spielberg",
       year: 1993,
-      thumbnail: "assets/thumbnail/movies/popular/schindler's-list.jpg"
+      thumbnail: "assets/thumbnail/movies/popular/schindler's-list.jpg",
+      movies: this.getMovies("Steven Spielberg")
     },
     {
-      movieName: "The Shawshank Redemption",
-      movieId: 2024797,
+      movieName: "The Pianist",
+      movieId: 1326154898,
       genre: "Drama",
-      directorName: "Stephen King",
-      year: 1994,
-      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
-    },
-    {
-      movieName: "The Shawshank Redemption",
-      movieId: 2024797,
-      genre: "Drama",
-      directorName: "Stephen King",
-      year: 1994,
-      thumbnail: "assets/thumbnail/movies/popular/shawshank-redemption.png"
+      directorName: "Roman Polanski",
+      year: 2003,
+      thumbnail: "assets/thumbnail/movies/popular/the-pianist.jpg",
+      movies: this.getMovies("Roman Polanski")
     }
   ];
 
@@ -381,6 +381,10 @@ export class DataFetchService {
 
     this.artist.forEach(artist => {
       this.bookmarkContent[artist.artistId] = false;
+    });
+
+    this.popularMovie.forEach(movie => {
+      this.bookmarkContent[movie.movieId] = false;
     });
 
     console.log("Check it", this.bookmarkContent);
@@ -415,6 +419,12 @@ export class DataFetchService {
   getAlbumsForArtist(artistId: number): Observable<any> {
     return this.http.get(
       `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=10`
+    );
+  }
+
+  getMoviesForDirector(directorName: string): Observable<any> {
+    return this.http.get(
+      `https://itunes.apple.com/search?term=${directorName}&entity=movie&limit=10`
     );
   }
 
@@ -463,6 +473,24 @@ export class DataFetchService {
         collections.push(albumData);
       });
       // console.log("final album", albums);
+    });
+    return collections;
+  }
+
+  getMovies(directorName: string): IDirector[] {
+    const collections: IDirector[] = [];
+    this.getMoviesForDirector(directorName).subscribe((movies: any) => {
+      movies.results.forEach((movie: any) => {
+        const movieData: IDirector = {
+          movieName: movie.trackName,
+          movieId: movie.trackId,
+          genre: movie.primaryGenreName,
+          thumbnail: movie.artworkUrl100
+        };
+        this.bookmarkContent[movieData.movieId] = false;
+        collections.push(movieData);
+      });
+      console.log("final movie", movies);
     });
     return collections;
   }

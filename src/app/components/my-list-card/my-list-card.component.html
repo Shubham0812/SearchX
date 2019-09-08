@@ -2,15 +2,27 @@
   <mat-card class="card mat-elevation-z0">
     <div
       [ngClass]="{
-        'song-image': cardData.subType === 'Song',
-        'artist-image': cardData.subType === 'Artist',
-        'album-image': cardData.subType === 'Album'
+        'song-image':
+          cardData.subType === 'Song' ||
+          cardData.subType === 'Album' ||
+          cardData.type === 'Movie',
+        'artist-image': cardData.subType === 'Artist'
       }"
     >
       <img [src]="cardData.image" class="image" />
-      <div class="buttons" >
-        <mat-icon class=" mat-primary-text">music_note</mat-icon>
-        <mat-icon class=" type-close mat-primary-text" (click)="remove(cardData.id)" >cancel</mat-icon>
+      <div class="buttons">
+        <mat-icon *ngIf="cardData.type !== 'Movie'" class=" mat-primary-text"
+          >music_note</mat-icon
+        >
+        <mat-icon *ngIf="cardData.type === 'Movie'" class=" mat-primary-text"
+          >movie</mat-icon
+        >
+
+        <mat-icon
+          class=" type-close mat-primary-text"
+          (click)="remove(cardData.id)"
+          >cancel</mat-icon
+        >
       </div>
     </div>
     <div class="information">

@@ -57,4 +57,12 @@ export interface IMovie {
   year: number;
   directorName: string;
   thumbnail: string;
+  movies: IDirector[];
+}
+
+export interface IDirector {
+  movieName: string;
+  movieId: number;
+  genre: string;
+  thumbnail: string;
 }

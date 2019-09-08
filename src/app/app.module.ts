@@ -31,6 +31,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { MyListComponent } from './components/my-list/my-list.component';
 import { MyListCardComponent } from './components/my-list-card/my-list-card.component';
 import { MovieResultComponent } from './components/movie-result/movie-result.component';
+import { MovieInfoDialogComponent } from './components/movie-info-dialog/movie-info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MovieResultComponent } from './components/movie-result/movie-result.com
     ExploreComponent,
     MyListComponent,
     MyListCardComponent,
-    MovieResultComponent
+    MovieResultComponent,
+    MovieInfoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { MovieResultComponent } from './components/movie-result/movie-result.com
     HorizontalScrollerModule,
     MatTabsModule
   ],
-  entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent],
+  entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent, MovieInfoDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
