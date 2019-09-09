@@ -52,7 +52,7 @@ export class MyListComponent implements OnInit {
   ];
 
   constructor(
-    private toDoSvc: ToDoService,
+    public toDoSvc: ToDoService,
     private dataFetchSvc: DataFetchService
   ) {
     this.savedList = this.toDoSvc.fetchToDoListData();

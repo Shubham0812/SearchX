@@ -9,9 +9,10 @@ import { DataFetchService } from "../../services/data-fetch.service";
 })
 export class MovieResultComponent implements OnInit {
   popularMovies: IMovie[];
+  latestHollywood: IMovie[];
   constructor(private dataFetchSvc: DataFetchService) {
     this.popularMovies = this.dataFetchSvc.getPopularMovies();
-
+    this.latestHollywood = this.dataFetchSvc.getLatestHollywood();
     this.dataFetchSvc.fillBookmarkFromStorage();
     this.dataFetchSvc.changeLoadState(false);
 

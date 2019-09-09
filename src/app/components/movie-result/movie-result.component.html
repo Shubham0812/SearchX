@@ -7,3 +7,13 @@
     ></app-content-card>
   </app-horizontal-scroller>
 </div>
+
+<h3>Latest Hollywood Moies</h3>
+<div *ngIf="latestHollywood">
+  <app-horizontal-scroller>
+    <app-content-card
+      *ngFor="let movie of latestHollywood"
+      [movie]="movie"
+    ></app-content-card>
+  </app-horizontal-scroller>
+</div>
