@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ToDoService } from "../../services/to-do.service";
+import { DataFetchService } from "../../services/data-fetch.service";
 import { IToDo } from "src/app/models/to-do-model";
 
 export interface ITypes {
@@ -50,8 +51,12 @@ export class MyListComponent implements OnInit {
     }
   ];
 
-  constructor(private toDoSvc: ToDoService) {
+  constructor(
+    private toDoSvc: ToDoService,
+    private dataFetchSvc: DataFetchService
+  ) {
     this.savedList = this.toDoSvc.fetchToDoListData();
+    // this.dataFetchSvc.shuffle(this.savedList);
     this.fetchStatus = "done";
     console.log("check saerch tabs", this.searchTabs);
   }
