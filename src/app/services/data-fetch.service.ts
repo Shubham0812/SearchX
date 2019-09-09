@@ -367,6 +367,73 @@ export class DataFetchService {
     }
   ];
 
+  latestHollywood: IMovie[] = [
+    {
+      movieName: "Joker",
+      movieId: 76463260134,
+      genre: "Drama",
+      directorName: "Todd Phillips",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/joker.jpg",
+      movies: this.getMovies("Todd Phillips")
+    },
+    {
+      movieName: "X-Men: Dark Phoenix",
+      movieId: 1464833546,
+      genre: "Action & Adventure",
+      directorName: "Simon Kinberg",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/dark-phoenix.jpg",
+      movies: this.getMovies("Simon Kinberg")
+    },
+    {
+      movieName: "The Lion King",
+      movieId: 1471367629,
+      genre: "Action & Adventure",
+      directorName: "Jon Favreau",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/lion-king.jpg",
+      movies: this.getMovies("Jon Favreau")
+    },
+    {
+      movieName: "Once Upon a Time In Hollywood",
+      movieId: 1473165316,
+      genre: "Drama",
+      directorName: "Quentin Tarantino",
+      year: 2019,
+      thumbnail:
+        "assets/thumbnail/movies/latest-hollywood/once-upon-a-time-hollywood.png",
+      movies: this.getMovies("Quentin Tarantino")
+    },
+    {
+      movieName: "Brightburn",
+      movieId: 1463706265,
+      genre: "Thriller",
+      directorName: "David Yarovesky",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/brightburn.jpg",
+      movies: this.getMovies("David Yarovesky")
+    },
+    {
+      movieName: "Spider-Man: Far from Home",
+      movieId: 1469325682,
+      genre: "Action & Adventure",
+      directorName: "Jon Watts",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/spiderman.jpg",
+      movies: this.getMovies("Jon Watts")
+    },
+    {
+      movieName: "Alladin",
+      movieId: 1463237984,
+      genre: "Action & Adventure",
+      directorName: "Guy Ritchie",
+      year: 2019,
+      thumbnail: "assets/thumbnail/movies/latest-hollywood/alladin.jpg",
+      movies: this.getMovies("Guy Ritchie")
+    }
+  ];
+
   constructor(private http: HttpClient, private toDoSvc: ToDoService) {
     this.shuffle(this.content);
     this.shuffle(this.artist);
@@ -387,6 +454,10 @@ export class DataFetchService {
       this.bookmarkContent[movie.movieId] = false;
     });
 
+    this.latestHollywood.forEach(movie => {
+      this.bookmarkContent[movie.movieId] = false;
+    });
+
     console.log("Check it", this.bookmarkContent);
   }
 
@@ -404,6 +475,10 @@ export class DataFetchService {
 
   getPopularMovies(): IMovie[] {
     return this.popularMovie;
+  }
+
+  getLatestHollywood(): IMovie[] {
+    return this.latestHollywood;
   }
 
   changeLoadState(state: boolean) {
@@ -490,7 +565,7 @@ export class DataFetchService {
         this.bookmarkContent[movieData.movieId] = false;
         collections.push(movieData);
       });
-      console.log("final movie", movies);
+      // console.log("final movie", movies);
     });
     return collections;
   }
