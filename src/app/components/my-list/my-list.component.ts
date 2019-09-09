@@ -45,7 +45,8 @@ export class MyListComponent implements OnInit {
     {
       name: "Books",
       activated: false,
-      subTypes: [{ name: "Author", activated: false }]
+      // subTypes: [{ name: "Author", activated: false }],
+      subTypes: []
     }
   ];
 

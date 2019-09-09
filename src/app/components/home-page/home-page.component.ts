@@ -37,8 +37,7 @@ export class HomePageComponent implements OnInit {
     console.log("Constructor called");
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
     if (this.searchForm.value !== "") {
@@ -51,6 +50,11 @@ export class HomePageComponent implements OnInit {
       console.log("song query");
       setTimeout(() => {
         this.router.navigate(["/search", "music"]);
+      }, 600);
+    } else if (this.searchForm.controls.searchQuery.value.includes("movie")) {
+      console.log("movie query");
+      setTimeout(() => {
+        this.router.navigate(["/search/movies"]);
       }, 600);
     } else {
       this.searchForm.reset();
@@ -67,6 +71,11 @@ export class HomePageComponent implements OnInit {
       this.dataFetchSvc.changeLoadState(true);
       setTimeout(_ => {
         this.router.navigate(["/search/music"]);
+      }, 600);
+    } else if (data.toLowerCase() === "movie") {
+      this.dataFetchSvc.changeLoadState(true);
+      setTimeout(_ => {
+        this.router.navigate(["/search/movie"]);
       }, 600);
     }
   }

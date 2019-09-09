@@ -28,7 +28,7 @@
   background-image: url("/assets/tile/songs-tile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: -150px;
+  // background-position-y: -150px;
   cursor: pointer;
   @include breakpoint-lt-s {
     background-position-y: 0px;
@@ -38,7 +38,7 @@
   background-image: url("/assets/tile/books-tile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: -90px;
+  // background-position-y: -90px;
   @include breakpoint-lt-s {
     background-position-y: 0px;
   }
@@ -52,7 +52,7 @@
   background-image: url("/assets/tile/movies-tile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-x: -120px;
+  // background-position-x: -120px;
     cursor: pointer;
 
   @include breakpoint-lt-s {

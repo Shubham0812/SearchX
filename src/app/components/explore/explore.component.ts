@@ -7,22 +7,57 @@ export interface Tile {
   cols: number;
   rows: number;
   text: string;
+  class: string;
 }
 
+export interface ITile {
+  name: string;
+  class: string;
+}
 @Component({
   selector: "app-explore",
   templateUrl: "./explore.component.html",
   styleUrls: ["./explore.component.scss"]
 })
 export class ExploreComponent implements OnInit {
-  constructor(private dataFetchSvc: DataFetchService, private router: Router) {}
+  tileNames: ITile[] = [
+    {
+      name: "Music",
+      class: "mat-elevation-z6 background-songs overlay"
+    },
+    {
+      name: "Movies",
+      class: "mat-elevation-z6 background-movies overlay"
+    },
+    {
+      name: "Games",
+      class: "mat-elevation-z6 background-games overlay"
+    },
+    {
+      name: "Books",
+      class: "mat-elevation-z6 background-books overlay"
+    }
+  ];
 
   tiles: Tile[] = [
-    { text: "Songs", cols: 3, rows: 2, color: "#212121" },
-    { text: "Movies", cols: 1, rows: 4, color: "#212121" },
-    { text: "Games", cols: 1, rows: 2, color: "#212121" },
-    { text: "Books", cols: 2, rows: 2, color: "#121212" }
+    { text: "", cols: 3, rows: 2, color: "#212121", class: "" },
+    { text: "", cols: 1, rows: 4, color: "#212121", class: "" },
+    { text: "", cols: 1, rows: 2, color: "#212121", class: "" },
+    { text: "", cols: 2, rows: 2, color: "#121212", class: "" }
   ];
+
+  constructor(private dataFetchSvc: DataFetchService, private router: Router) {
+    this.shuffle(this.tileNames);
+    console.log("after shuffle", this.tileNames);
+    let count = 0;
+    this.tiles.forEach(tile => {
+      tile.text = this.tileNames[count].name;
+      tile.class = this.tileNames[count].class;
+      count += 1;
+    });
+
+    console.log('tiles', this.tiles);
+  }
 
   ngOnInit() {}
 
@@ -39,5 +74,9 @@ export class ExploreComponent implements OnInit {
         this.router.navigate(["/search/movies"]);
       }, 600);
     }
+  }
+
+  shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
   }
 }
