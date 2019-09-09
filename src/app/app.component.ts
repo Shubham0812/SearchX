@@ -27,10 +27,10 @@ export class AppComponent implements OnInit {
     });
   }
 
-  navigateHome() {
+  navigate(route: string) {
     this.dataFetchSvc.changeLoadState(true);
     setTimeout(() => {
-      this.router.navigate(["/home"]);
+      this.router.navigate([route]);
 
       this.dataFetchSvc.changeLoadState(false);
     }, 400);
