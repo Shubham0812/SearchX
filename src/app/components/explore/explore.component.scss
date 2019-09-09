@@ -53,7 +53,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   // background-position-x: -120px;
-    cursor: pointer;
+  cursor: pointer;
 
   @include breakpoint-lt-s {
     background-position-x: 0px;
@@ -65,8 +65,8 @@
   transition-duration: 800ms;
 }
 
-.overlay + .mat-title{
-    opacity: 1.0;
+.overlay + .mat-title {
+  opacity: 1;
 }
 
 .n-overlay {
