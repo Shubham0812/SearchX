@@ -17,6 +17,8 @@ import {
   MatRippleModule,
   MatGridListModule,
   MatDialogModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from "@angular/material";
 import { MatTabsModule } from "@angular/material/tabs";
 
@@ -65,10 +67,17 @@ import { MovieInfoDialogComponent } from './components/movie-info-dialog/movie-i
     MatGridListModule,
     MatDialogModule,
     HorizontalScrollerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
-  entryComponents: [InfoDialogComponent, AlbumInfoDialogComponent, MovieInfoDialogComponent],
-  providers: [],
+  entryComponents: [
+    InfoDialogComponent,
+    AlbumInfoDialogComponent,
+    MovieInfoDialogComponent
+  ],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2000 } }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
