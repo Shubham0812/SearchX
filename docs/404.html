@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SearchX</title>
+    <base href="https://shubham0812.github.io/SearchX/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  <link rel="stylesheet" href="styles.c668c485c411d0b34e24.css"></head>
+  <body>
+    <app-root>
+       <style>
+      .loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color:rgba(18, 18, 18, 1);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  animation: loader 2s infinite ease;
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+@keyframes loader {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(180deg);}
+  50% { transform: rotate(180deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes loader-inner {
+  0% { height: 0%;}
+  25% { height: 0%;}
+  50% { height: 100%;}
+  75% { height: 100%;}
+  100% { height: 0%;}
+}
+      </style>
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+    </app-root>
+  <script src="runtime-es2015.858f8dd898b75fe86926.js" type="module"></script><script src="polyfills-es2015.5728f680576ca47e99fe.js" type="module"></script><script src="runtime-es5.741402d1d47331ce975c.js" nomodule></script><script src="polyfills-es5.7f43b971448d2fb49202.js" nomodule></script><script src="main-es2015.0936ca0d930a22709f09.js" type="module"></script><script src="main-es5.589ca8437e6cc19ec64a.js" nomodule></script></body>
+</html>
