@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
     this.dataFetchSvc.changeLoadState(true);
     setTimeout(() => {
       this.router.navigate([route]);
-
       this.dataFetchSvc.changeLoadState(false);
     }, 400);
   }
