@@ -57,23 +57,27 @@ export class HomePageComponent implements OnInit {
         this.dataFetchSvc.changeLoadState(false);
       }, 200);
     } else if (this.searchForm.controls.searchQuery.value.includes("music")) {
+      this.dataFetchSvc.changeLoadState(true);
+
       console.log("song query");
       setTimeout(() => {
         this.router.navigate(["/search", "music"]);
       }, 600);
     } else if (this.searchForm.controls.searchQuery.value.includes("movie")) {
+      this.dataFetchSvc.changeLoadState(true);
+
       console.log("movie query");
       setTimeout(() => {
         this.router.navigate(["/search/movies"]);
       }, 600);
     } else {
-       this.dataFetchSvc.changeLoadState(true);
-       console.log("Submit called", this.searchForm.controls.searchQuery.value);
-       this.searchForm.reset();
-       setTimeout(() => {
+      this.dataFetchSvc.changeLoadState(true);
+      console.log("Submit called", this.searchForm.controls.searchQuery.value);
+      this.searchForm.reset();
+      setTimeout(() => {
         //  this.snackBar.open("");
-         this.dataFetchSvc.changeLoadState(false);
-       }, 200);
+        this.dataFetchSvc.changeLoadState(false);
+      }, 200);
     }
   }
 

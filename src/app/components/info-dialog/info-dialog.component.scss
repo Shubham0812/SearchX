@@ -14,7 +14,19 @@
 
 .content {
   display: flex;
+
+    @media only screen and (max-width: 831px) {
+    flex-wrap: wrap;
+  }
 }
+
+.button-container {
+  display: flex;
+  @media only screen and (max-width: 586px) {
+    flex-wrap: wrap;
+  }
+}
+
 
 .headline {
   h1,
@@ -37,7 +49,19 @@
   transform: translate3d(50%, -50%, 0);
   cursor: pointer;
   padding: 0;
+
+    @media only screen and (max-width: 831px) {
+    width: 24px;
+    height: 24px;
+  }
 }
+
+.large-header {
+  @media only screen and (max-width: 831px) {
+    margin-top: 20px;
+  }
+}
+
 
 ul {
   font-family: Montserrat;
@@ -55,6 +79,11 @@ ul:hover{
   display: grid;
   grid-template-columns: 1fr 1fr 0.3fr;
   align-items: center;
+
+    @media only screen and (max-width: 646px) {
+      grid-template-columns: auto;
+  }
+
 }
 
 .op70 {

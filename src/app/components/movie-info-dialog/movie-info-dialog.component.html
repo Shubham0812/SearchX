@@ -4,7 +4,7 @@
       <img [src]="data.thumbnail" class="" />
       <div class="headline">
         <h1
-          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold"
+          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold large-header"
           color="mat-primary-text"
         >
           {{ data.movieName }}
@@ -12,44 +12,49 @@
         <h2 class="mat-title margin-left-l">
           {{ data.directorName }}
         </h2>
-        <div class="flex">
+        <div class="flex button-container">
           <!-- <mat-icon color="primary" class=" margin-left-l">timer</mat-icon>
           <h4 class="mat-h4 margin-left-xs">{{ data.directorName }}</h4> -->
-          <mat-icon color="primary" class=" margin-left-l"
-            >calendar_today</mat-icon
-          >
-          <h4 class="mat-h4 margin-left-xs">{{ data.year }}</h4>
-
-          <mat-icon color="primary" class=" margin-left-l"
-            >local_movies</mat-icon
-          >
-          <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
-          <mat-icon
-            color="primary"
-            class=" margin-left-xl pointer"
-            (click)="bookmarkMovie(data.movieId, data)"
-            *ngIf="!this.dataFetchSvc.bookmarkContent[data.movieId]"
-            >bookmark_border</mat-icon
-          >
-          <mat-icon
-            color="primary"
-            class="margin-left-xl pointer"
-            *ngIf="this.dataFetchSvc.bookmarkContent[data.movieId]"
-            (click)="bookmarkMovie(data.movieId, data)"
-            >bookmark</mat-icon
-          >
-          <h4
-            class="mat-h4 margin-left-xs"
-            *ngIf="!dataFetchSvc.bookmarkContent[data.movieId]"
-          >
-            Add to My List
-          </h4>
-          <h4
-            class="mat-h4 margin-left-xs"
-            *ngIf="dataFetchSvc.bookmarkContent[data.movieId]"
-          >
-            Remove from My List
-          </h4>
+          <div class="flex">
+            <mat-icon color="primary" class=" margin-left-l"
+              >calendar_today</mat-icon
+            >
+            <h4 class="mat-h4 margin-left-xs">{{ data.year }}</h4>
+          </div>
+          <div class="flex">
+            <mat-icon color="primary" class=" margin-left-l"
+              >local_movies</mat-icon
+            >
+            <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
+          </div>
+          <div class="flex">
+            <mat-icon
+              color="primary"
+              class=" margin-left-l pointer"
+              (click)="bookmarkMovie(data.movieId, data)"
+              *ngIf="!this.dataFetchSvc.bookmarkContent[data.movieId]"
+              >bookmark_border</mat-icon
+            >
+            <mat-icon
+              color="primary"
+              class="margin-left-l pointer"
+              *ngIf="this.dataFetchSvc.bookmarkContent[data.movieId]"
+              (click)="bookmarkMovie(data.movieId, data)"
+              >bookmark</mat-icon
+            >
+            <h4
+              class="mat-h4 margin-left-xs"
+              *ngIf="!dataFetchSvc.bookmarkContent[data.movieId]"
+            >
+              Add to My List
+            </h4>
+            <h4
+              class="mat-h4 margin-left-xs"
+              *ngIf="dataFetchSvc.bookmarkContent[data.movieId]"
+            >
+              Remove from My List
+            </h4>
+          </div>
         </div>
       </div>
     </div>
@@ -60,9 +65,10 @@
   </button>
 </div>
 
-
 <div>
-  <h3 class="mat-h3 margin-top-m">Popular Movies by {{ data.directorName }}</h3>
+  <h3 class="mat-h3 margin-top-m" *ngIf="data.movies.length">
+    Popular Movies by {{ data.directorName }}
+  </h3>
   <app-horizontal-scroller>
     <ng-container *ngFor="let movie of data.movies">
       <div class="movies">

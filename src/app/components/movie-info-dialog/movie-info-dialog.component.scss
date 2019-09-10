@@ -13,6 +13,17 @@
 }
 .content {
   display: flex;
+
+  @media only screen and (max-width: 831px) {
+    flex-wrap: wrap;
+  }
+}
+
+.button-container {
+  display: flex;
+  @media only screen and (max-width: 586px) {
+    flex-wrap: wrap;
+  }
 }
 
 .headline {
@@ -36,6 +47,17 @@
   transform: translate3d(50%, -50%, 0);
   cursor: pointer;
   padding: 0;
+
+  @media only screen and (max-width: 831px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.large-header {
+  @media only screen and (max-width: 831px) {
+    margin-top: 20px;
+  }
 }
 
 .movies {
@@ -91,9 +113,9 @@
 
 .pointer {
   cursor: pointer;
+
 }
 
-
-.op40{
-    opacity: 0.4;
+.op40 {
+  opacity: 0.4;
 }

@@ -4,7 +4,7 @@
       <img [src]="data.thumbnail" class="" />
       <div class="headline">
         <h1
-          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold"
+          class="mat-headline margin-left-l margin-bottom-xs mat-primary-text text-bold large-header"
           color="mat-primary-text"
         >
           {{ data.name }}
@@ -12,25 +12,28 @@
         <h2 class="mat-title margin-left-l">
           {{ data.subscribers }} Subscribers
         </h2>
-        <div class="flex">
+        <div class="flex button-container">
+          <div class = "flex">
           <mat-icon color="primary" class=" margin-left-l"
             >calendar_today</mat-icon
           >
           <h4 class="mat-h4 margin-left-xs">{{ data.albums.length }}</h4>
-          <mat-icon color="primary" class=" margin-left-l">timer</mat-icon>
-          <h4 class="mat-h4 margin-left-xs">{{ data }}</h4>
+          </div>
+          <div class = "flex">
           <mat-icon color="primary" class=" margin-left-l">audiotrack</mat-icon>
           <h4 class="mat-h4 margin-left-xs">{{ data.genre }}</h4>
+          </div>
+          <div class = "flex">
           <mat-icon
             color="primary"
-            class=" margin-left-xl pointer"
+            class=" margin-left-l pointer"
             (click)="bookmarkArtist(data.artistId, data)"
             *ngIf="!this.dataFetchSvc.bookmarkContent[data.artistId]"
             >bookmark_border</mat-icon
           >
           <mat-icon
             color="primary"
-            class="margin-left-xl pointer"
+            class="margin-left-l pointer"
             *ngIf="this.dataFetchSvc.bookmarkContent[data.artistId]"
             (click)="bookmarkArtist(data.artistId, data)"
             >bookmark</mat-icon
@@ -47,6 +50,7 @@
           >
             Remove from My List
           </h4>
+          </div>
         </div>
       </div>
     </div>
@@ -58,7 +62,7 @@
 </div>
 
 <div>
-  <h3 class="mat-h3 margin-top-m">Albums by {{ data.name }}</h3>
+  <h3 class="mat-h3 margin-top-m" *ngIf="data.albums.length">Albums by {{ data.name }}</h3>
   <app-horizontal-scroller>
     <ng-container *ngFor="let album of data.albums">
       <div class="albums">

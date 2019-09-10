@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy
+} from "@angular/core";
 import { Subscription, fromEvent } from "rxjs";
 import { debounceTime, throttleTime } from "rxjs/operators";
 
@@ -19,6 +25,8 @@ export class HorizontalScrollerComponent implements OnInit, OnDestroy {
     this.disablePrev = true;
     setTimeout(() => {
       this.initializeObserver();
+      this.updateNavigationButtonStatus(this.cardContents
+        .nativeElement as HTMLElement);
     }, 500);
   }
 
@@ -57,6 +65,18 @@ export class HorizontalScrollerComponent implements OnInit, OnDestroy {
   }
 
   updateNavigationButtonStatus(element: HTMLElement) {
+    console.log(
+      "scroll width",
+      element.scrollWidth,
+      " client width",
+      element.clientWidth
+    );
+    if (element.scrollWidth > element.clientWidth) {
+      this.disableNext = false;
+    } else {
+      this.disableNext = true;
+    }
+
     if (element.scrollLeft === 0) {
       this.disablePrev = true;
     } else {
