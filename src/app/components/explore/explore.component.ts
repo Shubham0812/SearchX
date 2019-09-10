@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataFetchService } from "../../services/data-fetch.service";
 import { Router } from "@angular/router";
-
+import { MatSnackBar } from "@angular/material";
 export interface Tile {
   color: string;
   cols: number;
@@ -46,7 +46,11 @@ export class ExploreComponent implements OnInit {
     { text: "", cols: 2, rows: 2, color: "#121212", class: "" }
   ];
 
-  constructor(private dataFetchSvc: DataFetchService, private router: Router) {
+  constructor(
+    private dataFetchSvc: DataFetchService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     this.shuffle(this.tileNames);
     console.log("after shuffle", this.tileNames);
     let count = 0;
@@ -56,7 +60,7 @@ export class ExploreComponent implements OnInit {
       count += 1;
     });
 
-    console.log('tiles', this.tiles);
+    console.log("tiles", this.tiles);
   }
 
   ngOnInit() {}
@@ -73,6 +77,8 @@ export class ExploreComponent implements OnInit {
       setTimeout(_ => {
         this.router.navigate(["/search/movies"]);
       }, 600);
+    } else {
+      this.snackBar.open("Coming Soon..");
     }
   }
 
