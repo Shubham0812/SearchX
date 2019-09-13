@@ -1,5 +1,5 @@
-<h3>All time Popular Movies</h3>
-<div *ngIf="popularMovies">
+<h3 class="in-up">All time Popular Movies</h3>
+<div *ngIf="popularMovies" class = "in-left">
   <app-horizontal-scroller>
     <app-content-card
       *ngFor="let movie of popularMovies"
@@ -8,8 +8,8 @@
   </app-horizontal-scroller>
 </div>
 
-<h3>Latest Hollywood Movies</h3>
-<div *ngIf="latestHollywood" class = "margin-bottom-xl">
+<h3 class="in-up">Latest Hollywood Movies</h3>
+<div *ngIf="latestHollywood" class = "margin-bottom-xl in-left">
   <app-horizontal-scroller>
     <app-content-card
       *ngFor="let movie of latestHollywood"

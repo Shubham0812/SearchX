@@ -1,5 +1,6 @@
-<h3>Trending Songs</h3>
-<div *ngIf="contents">
+<h3 class="in-up" >Trending Songs</h3>
+<div *ngIf="contents" class="in-left"> 
+
   <app-horizontal-scroller>
     <app-content-card
       *ngFor="let content of contents"
@@ -8,8 +9,8 @@
   </app-horizontal-scroller>
 </div>
 
-<h3>Latest Releases</h3>
-<div *ngIf="latestSongs">
+<h3 class="in-up">Latest Releases</h3>
+<div *ngIf="latestSongs" class="in-left">
   <app-horizontal-scroller>
     <app-content-card
       *ngFor="let content of latestSongs"
@@ -18,8 +19,8 @@
   </app-horizontal-scroller>
 </div>
 
-<h3>Trending Artists</h3>
-<div *ngIf="artists" class = "margin-bottom-xl">
+<h3 class="in-up">Trending Artists</h3>
+<div *ngIf="artists" class = "margin-bottom-xl in-left">
   <app-horizontal-scroller>
     <app-content-card
       *ngFor="let artist of artists"
