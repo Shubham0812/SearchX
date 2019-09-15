@@ -19,7 +19,6 @@ export class MyListCardComponent implements OnInit {
 
   remove(id: number) {
     this.toDoSvc.removeFromToDo(id);
-    console.log('calling');
     this.cardRemoved.emit(true);
   }
 }

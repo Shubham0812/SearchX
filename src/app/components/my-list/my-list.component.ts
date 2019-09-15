@@ -21,7 +21,10 @@ export interface ISubType {
 export class MyListComponent implements OnInit {
   savedList: IToDo[] = [];
   selectedIndex = 0;
+  selectedType = "All";
+  selectedSubType = "";
   fetchStatus = "none";
+  displayCenter = false;
 
   searchTabs: ITypes[] = [
     {
@@ -34,7 +37,7 @@ export class MyListComponent implements OnInit {
       activated: false,
       subTypes: [
         { name: "Songs", activated: false },
-        { name: "Artist", activated: false },
+        { name: "Artists", activated: false },
         { name: "Albums", activated: false }
       ]
     },
@@ -66,24 +69,25 @@ export class MyListComponent implements OnInit {
   }
 
   toggleData(item: string) {
-    // console.log("Data check", item);
+    console.log("Data check", item);
     let count = 0;
     this.toggleSubData("remove");
     this.searchTabs.forEach(tab => {
       if (tab.name === item) {
         tab.activated = true;
         this.selectedIndex = count;
-
+        this.selectedType = item;
         if (tab.name !== "All") {
           let dataFetch = this.toDoSvc.fetchToDoListData();
           dataFetch = dataFetch.filter(fetch => {
             return fetch.type === item;
           });
           this.savedList = dataFetch;
-          console.log("Check toggle", dataFetch, item);
+          // console.log("Check toggle", dataFetch, item);
         } else {
           this.savedList = this.toDoSvc.fetchToDoListData();
         }
+        this.selectedSubType = "";
       } else {
         tab.activated = false;
       }
@@ -92,14 +96,18 @@ export class MyListComponent implements OnInit {
     // console.log(this.searchTabs, this.selectedIndex);
   }
 
+  checkForCenter() {
+    if (this.savedList.length > 3) {
+      this.displayCenter = true;
+    }
+  }
+
   toggleSubData(item: string) {
-    // console.log("check subtoggle", item);
     // console.log("Inside sub", this.searchTabs[this.selectedIndex]);
     this.searchTabs[this.selectedIndex].subTypes.forEach(subTab => {
       if (subTab.name === item) {
         subTab.activated = true;
         let dataFetch = this.toDoSvc.fetchToDoListData();
-
         dataFetch = dataFetch.filter(fetch => {
           if (item.charAt(item.length - 1) === "s") {
             return fetch.subType === item.substring(0, item.length - 1);
@@ -107,6 +115,8 @@ export class MyListComponent implements OnInit {
             return fetch.subType === item;
           }
         });
+        this.selectedSubType = item.substring(0, item.length - 1);
+        console.log("check subtype", this.selectedSubType);
         this.savedList = dataFetch;
 
         console.log("after subtoggle", dataFetch);
@@ -117,7 +127,20 @@ export class MyListComponent implements OnInit {
   }
 
   refreshCards() {
-    console.log("Time to refresh");
-    this.savedList = this.toDoSvc.fetchToDoListData();
+    console.log("Time to refresh", this.selectedIndex);
+    let dataFetch = this.toDoSvc.fetchToDoListData();
+    if (this.selectedType !== "All") {
+      dataFetch = dataFetch.filter(fetch => {
+        return fetch.type === this.selectedType;
+      });
+    }
+    console.log("after list", dataFetch);
+    console.log("check", this.selectedSubType);
+    if (this.selectedSubType !== "") {
+      dataFetch = dataFetch.filter(fetch => {
+        return fetch.subType === this.selectedSubType;
+      });
+    }
+    this.savedList = dataFetch;
   }
 }

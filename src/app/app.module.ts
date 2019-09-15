@@ -34,6 +34,7 @@ import { MyListComponent } from './components/my-list/my-list.component';
 import { MyListCardComponent } from './components/my-list-card/my-list-card.component';
 import { MovieResultComponent } from './components/movie-result/movie-result.component';
 import { MovieInfoDialogComponent } from './components/movie-info-dialog/movie-info-dialog.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MovieInfoDialogComponent } from './components/movie-info-dialog/movie-i
     MyListComponent,
     MyListCardComponent,
     MovieResultComponent,
-    MovieInfoDialogComponent
+    MovieInfoDialogComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -56,14 +56,14 @@ export class HomePageComponent implements OnInit {
         this.snackBar.open("Please enter Something");
         this.dataFetchSvc.changeLoadState(false);
       }, 200);
-    } else if (this.searchForm.controls.searchQuery.value.includes("music")) {
+    } else if (this.searchForm.controls.searchQuery.value.lowercased().includes("music")) {
       this.dataFetchSvc.changeLoadState(true);
 
       console.log("song query");
       setTimeout(() => {
         this.router.navigate(["/search", "music"]);
       }, 600);
-    } else if (this.searchForm.controls.searchQuery.value.includes("movie")) {
+    } else if (this.searchForm.controls.searchQuery.value.lowercased().includes("movie")) {
       this.dataFetchSvc.changeLoadState(true);
 
       console.log("movie query");

@@ -5,12 +5,16 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 import { ExploreComponent } from "./components/explore/explore.component";
 import { MyListComponent } from "./components/my-list/my-list.component";
 import { MovieResultComponent } from './components/movie-result/movie-result.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
     redirectTo: "home"
+  }, {
+    path: "about",
+    component: AboutComponent
   },
   {
     path: "explore",
