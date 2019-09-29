@@ -22,7 +22,6 @@ export class ContentCardComponent implements OnInit {
   focusImage() {}
 
   contentClicked(content: ISong) {
-    console.log("Content", content);
     const dialogRef = this.dialog.open(InfoDialogComponent, {
       width: "70%",
       data: content
@@ -30,7 +29,6 @@ export class ContentCardComponent implements OnInit {
   }
 
   artistClicked(artist: IArtist) {
-    console.log("Arist", artist);
     const dialogRef = this.dialog.open(AlbumInfoDialogComponent, {
       width: "70%",
       data: artist
@@ -38,7 +36,6 @@ export class ContentCardComponent implements OnInit {
   }
 
   movieClicked(movie: IMovie) {
-    console.log("Movie", movie);
     const dialogRef = this.dialog.open(MovieInfoDialogComponent, {
       width: "70%",
       data: movie
