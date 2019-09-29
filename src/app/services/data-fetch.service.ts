@@ -458,7 +458,7 @@ export class DataFetchService {
       this.bookmarkContent[movie.movieId] = false;
     });
 
-    console.log("Check it", this.bookmarkContent);
+    // console.log("Check it", this.bookmarkContent);
   }
 
   getContent(): ISong[] {
@@ -605,7 +605,7 @@ export class DataFetchService {
   fillBookmarkFromStorage() {
     const myList = this.toDoSvc.fetchToDoListData();
     if (myList !== null) {
-      console.log("My list", myList);
+      // console.log("My list", myList);
       myList.forEach((list: IToDo) => {
         this.bookmarkContent[list.id] = true;
       });

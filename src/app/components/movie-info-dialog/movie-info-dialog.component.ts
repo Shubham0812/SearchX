@@ -17,7 +17,6 @@ export class MovieInfoDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<MovieInfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IMovie
   ) {
-    console.log("dialog open", data);
   }
 
   ngOnInit() {}
@@ -26,7 +25,6 @@ export class MovieInfoDialogComponent implements OnInit {
   }
 
   bookmarkMovie(movieId: number, movie?: IMovie) {
-    console.log("bookmark", movieId, movie);
 
     if (!this.dataFetchSvc.bookmarkContent[movieId]) {
       const data: IToDo = {
@@ -42,6 +40,5 @@ export class MovieInfoDialogComponent implements OnInit {
     }
 
     this.dataFetchSvc.bookmarkContent[movieId] = !this.dataFetchSvc.bookmarkContent[movieId];
-    console.log("Check svc", this.toDoSvc.toDoList);
   }
 }

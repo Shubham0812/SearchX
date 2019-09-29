@@ -39,7 +39,6 @@ export class HomePageComponent implements OnInit {
     private dataFetchSvc: DataFetchService,
     private snackBar: MatSnackBar
   ) {
-    console.log("Constructor called");
   }
 
   ngOnInit() {}
@@ -50,19 +49,17 @@ export class HomePageComponent implements OnInit {
       this.searchForm.controls.searchQuery.value === null
     ) {
       this.dataFetchSvc.changeLoadState(true);
-      console.log("Submit called", this.searchForm.controls.searchQuery.value);
       this.searchForm.reset();
       setTimeout(() => {
         this.snackBar.open("Please enter Something");
         this.dataFetchSvc.changeLoadState(false);
       }, 200);
     } else if (
-      this.searchForm.controls.searchQuery.value.includes("music") ||
-      this.searchForm.controls.searchQuery.value.includes("Music")
+      this.searchForm.controls.searchQuery.value.toLowerCase().includes("music") ||
+      this.searchForm.controls.searchQuery.value.toLowerCase().includes("song")
     ) {
       this.dataFetchSvc.changeLoadState(true);
 
-      console.log("song query");
       setTimeout(() => {
         this.router.navigate(["/search", "music"]);
       }, 600);
@@ -72,13 +69,11 @@ export class HomePageComponent implements OnInit {
     ) {
       this.dataFetchSvc.changeLoadState(true);
 
-      console.log("movie query");
       setTimeout(() => {
         this.router.navigate(["/search/movies"]);
       }, 600);
     } else {
       this.dataFetchSvc.changeLoadState(true);
-      console.log("Submit called", this.searchForm.controls.searchQuery.value);
       this.searchForm.reset();
       setTimeout(() => {
         //  this.snackBar.open("");
@@ -88,7 +83,6 @@ export class HomePageComponent implements OnInit {
   }
 
   gridClicked(data: string) {
-    console.log("grid tile", data);
     if (data.toLowerCase() === "music") {
       this.dataFetchSvc.changeLoadState(true);
       setTimeout(_ => {

@@ -52,7 +52,6 @@ export class ExploreComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     this.shuffle(this.tileNames);
-    console.log("after shuffle", this.tileNames);
     let count = 0;
     this.tiles.forEach(tile => {
       tile.text = this.tileNames[count].name;
@@ -60,13 +59,11 @@ export class ExploreComponent implements OnInit {
       count += 1;
     });
 
-    console.log("tiles", this.tiles);
   }
 
   ngOnInit() {}
 
   gridClicked(data: string) {
-    console.log("grid tile", data);
     if (data.toLowerCase() === "music") {
       this.dataFetchSvc.changeLoadState(true);
       setTimeout(_ => {

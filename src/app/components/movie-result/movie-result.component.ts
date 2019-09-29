@@ -16,11 +16,6 @@ export class MovieResultComponent implements OnInit {
     this.dataFetchSvc.fillBookmarkFromStorage();
     this.dataFetchSvc.changeLoadState(false);
 
-    console.log(
-      "Check bookcontent",
-      this.dataFetchSvc.getBookmarkData(),
-      this.popularMovies
-    );
   }
   ngOnInit() {}
 }

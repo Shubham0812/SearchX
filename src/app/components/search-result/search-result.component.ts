@@ -21,12 +21,6 @@ export class SearchResultComponent implements OnInit {
     this.latestSongs = this.dataFetchSvc.getLatestContent();
     this.dataFetchSvc.fillBookmarkFromStorage();
     this.dataFetchSvc.changeLoadState(false);
-
-    console.log(
-      "Check bookcontent",
-      this.dataFetchSvc.getBookmarkData(),
-      this.dataFetchSvc.bookmarkContent.length
-    );
   }
 
   ngOnInit() {}

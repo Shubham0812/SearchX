@@ -20,7 +20,6 @@ export class AlbumInfoDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<AlbumInfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IArtist
   ) {
-    console.log("dialog open", data);
     this.bookmarkContent[data.artistId] = false;
   }
 
@@ -35,7 +34,6 @@ export class AlbumInfoDialogComponent implements OnInit {
   }
 
   bookmark(albumId: number, album?: IAlbums) {
-    console.log("bookmark album", albumId, album);
 
     if (!this.dataFetchSvc.bookmarkContent[albumId]) {
       const data: IToDo = {
@@ -52,11 +50,9 @@ export class AlbumInfoDialogComponent implements OnInit {
 
     this.dataFetchSvc.bookmarkContent[albumId] = !this.dataFetchSvc
       .bookmarkContent[albumId];
-    console.log("Check svc", this.toDoSvc.toDoList);
   }
 
   bookmarkArtist(artistId: number, artist?: IArtist) {
-    console.log("bookmark", artistId, artist);
 
     if (!this.dataFetchSvc.bookmarkContent[artistId]) {
       const data: IToDo = {
@@ -73,6 +69,5 @@ export class AlbumInfoDialogComponent implements OnInit {
 
     this.dataFetchSvc.bookmarkContent[artistId] = !this.dataFetchSvc
       .bookmarkContent[artistId];
-    console.log("Check svc", this.toDoSvc.toDoList);
   }
 }

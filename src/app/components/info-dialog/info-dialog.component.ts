@@ -17,7 +17,6 @@ export class InfoDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<InfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ISong
   ) {
-    console.log("dialog open", data);
   }
 
   onClose(): void {
@@ -27,7 +26,6 @@ export class InfoDialogComponent implements OnInit {
   ngOnInit() {}
 
   bookmark(trackId: number, track?: ITracks) {
-    console.log("bookmark", trackId, track);
 
     if (!this.dataFetchSvc.bookmarkContent[trackId]) {
       let data: IToDo;
