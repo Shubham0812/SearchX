@@ -5,8 +5,7 @@ Web Page created with Angular 8, which helps the user to search for different ty
 
 ## Motivation
 
-This project was created for demonstrating my Angular skills, the Jobs API was provided by BYJU's.
-
+I started this project to work on my Angular 8 skills and I have always wanted to create a search engine where you could find stuff and save it for later use.
 
 ## Technologies Used
 
