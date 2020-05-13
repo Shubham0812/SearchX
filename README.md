@@ -71,4 +71,4 @@ Download the zip file or clone the project.
 
 ## Credits
 
-**©** **Shubham Kumar Singh** | *2019*
+**©** **Shubham Kumar Singh** | *2020*
